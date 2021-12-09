@@ -1,0 +1,32 @@
+
+<div class = "container">
+
+<div class="card">
+    <div class="card-header">
+        <a routerLink="/agregar-usuario/" class = "btn btn-success" role = "button">Agregar nuevo usuario </a>
+    </div>
+    <div class="card-body">
+     <table class="table">
+         <thead>
+             <tr>
+                 <th>CÓDIGO</th>
+                 <th>NOMBRE</th>
+                 <th>CORREO</th>
+                 <th>ACCIONES</th>
+             </tr>
+         </thead>
+         <tbody>
+             <tr *ngFor="let usuario of Usuarios; let iControl=index">
+                 <td>{{ usuario.idUsuario }}</td>
+                 <td> {{usuario.nombre }} </td>
+                 <td> {{usuario.correo}} </td>
+                 <td> <a routerLink="/editar-usuario/{{usuario.idUsuario}}" class = "btn btn-info" role = "button">EDITAR </a>| 
+                    <a name = "" id = "" (click)="borrarRegistro(usuario.idUsuario, iControl)" class = "btn btn-danger" role = "button">BORRAR</a></td>
+             </tr>
+             
+         </tbody>
+     </table>
+    </div>
+  </div>
+
+</div>
