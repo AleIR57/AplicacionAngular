@@ -5,7 +5,7 @@
     <div class="card-header">
         Listado de usuarios  <a routerLink="/agregar-usuario/" class = "btn btn-info" role = "button"><i class="fas fa-plus"></i> </a>
     </div>
-    <div class="card-body">
+    <div class="card-body text-center">
      <table class="table">
          <thead>
              <tr>
@@ -13,7 +13,6 @@
                  <th>CÓDIGO</th>
                  <th>NOMBRE</th>
                  <th>CORREO</th>
-                 <th>DIRECCIÓN</th>
                  <th>TELÉFONO</th>
                  <th>ACCIONES</th>
              </tr>
@@ -24,7 +23,6 @@
                  <td>{{ usuario.idUsuario }}</td>
                  <td> {{usuario.nombre }} </td>
                  <td> {{usuario.correo}} </td>
-                 <td> {{usuario.direccion }} </td>
                  <td> {{usuario.telefono }} </td>
                  <td> <a routerLink="/editar-usuario/{{usuario.idUsuario}}" class = "btn btn-warning" role = "button"><i class="fas fa-pencil-alt"></i> </a> | 
                     <a name = "" id = "" (click)="borrarRegistro(usuario.idUsuario, iControl)" class = "btn btn-danger" role = "button"><i class="fas fa-trash-alt"></i></a></td>

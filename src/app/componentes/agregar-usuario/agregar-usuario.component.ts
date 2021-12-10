@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class AgregarUsuarioComponent implements OnInit {
 
   formularioDeUsuarios:FormGroup;
-  Roles:any
+  Roles:any;
   imagenPrevisualizacion:any;
 
 
@@ -56,7 +56,7 @@ export class AgregarUsuarioComponent implements OnInit {
   _handleReaderLoaded(readerEvent:any){
     var binaryString = readerEvent.target.result;
     this.formularioDeUsuarios.value['foto'] = btoa(binaryString);
-    console.log(this.formularioDeUsuarios.value['foto']);
+    console.log("Esta es la imagen", this.formularioDeUsuarios.value['foto']);
     this.imagenPrevisualizacion = this.formularioDeUsuarios.value['foto'];
   }
 
@@ -65,10 +65,13 @@ export class AgregarUsuarioComponent implements OnInit {
   }
 
   enviarDatos():any{
-    
+    this.formularioDeUsuarios.value['foto'] = this.imagenPrevisualizacion;
+    console.log("Esta es la imagen", this.formularioDeUsuarios.value['foto']);
     console.log("Sujeto");
     console.log(this.formularioDeUsuarios.value);
+    
     this.crudService.AgregarUsuario(this.formularioDeUsuarios.value).subscribe(respuesta =>{
+     
       this.ruteador.navigateByUrl('/listar-usuario');
     });
 

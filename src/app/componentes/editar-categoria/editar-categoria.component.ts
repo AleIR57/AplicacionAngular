@@ -23,6 +23,7 @@ export class EditarCategoriaComponent implements OnInit {
     this.elID=this.activateRoute.snapshot.paramMap.get('id');
     console.log(this.elID);
     this.crudService.ObtenerCategoria(this.elID).subscribe(respuesta =>{
+      this.imagenPrevisualizacion = respuesta[0]['imagen'];
       console.log(respuesta);
       this.formularioDeCategorias.setValue({
         nombre:respuesta[0]['nombre'],
@@ -60,7 +61,7 @@ export class EditarCategoriaComponent implements OnInit {
     var binaryString = readerEvent.target.result;
     this.formularioDeCategorias.value['imagen'] = btoa(binaryString);
  
-   
+    this.imagenPrevisualizacion = this.formularioDeCategorias.value['imagen'];
     console.log(this.formularioDeCategorias.value['imagen']);
   }
 
@@ -69,6 +70,7 @@ export class EditarCategoriaComponent implements OnInit {
   }
 
   enviarDatos():any{
+    this.formularioDeCategorias.value['imagen'] = this.imagenPrevisualizacion;
     console.log(this.elID);
     console.log(this.formularioDeCategorias.value);
     this.crudService.EditarCategoria(this.elID, this.formularioDeCategorias.value).subscribe(respuesta =>{

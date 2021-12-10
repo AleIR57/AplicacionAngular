@@ -1,4 +1,109 @@
 img{
-    width: 10em;
-    height: 10em;
+    width: 100%;
+    height: 15em;
 }
+
+.img-categoria{
+    width: 100%;
+    height: 8em;
+    padding-left: 5%;
+    margin-left: 100%;
+    margin-right: 5%;
+    filter:brightness(0.5);
+}
+
+.img-categoria:hover{
+    cursor: pointer;
+    transform:translateY(-2px);
+    
+}
+
+.p-categoria{
+    color: black;
+    position:relative;
+    color: white;
+    margin-left: 125%;
+    width: 50%;
+    z-index:1000;
+    margin-top: -38%;
+}
+
+
+.botones{
+    margin-top: -5%;
+    display: flex;
+
+}
+
+.botonPrecio{
+    border-radius: 3px;
+
+    margin-left: auto;
+
+}
+
+.tarjeta{
+    height: 25em;
+}
+
+.tarjeta:hover{
+    transform:translateY(-2px);
+    box-shadow: 0 0 10px lightgray;
+    cursor: pointer;
+
+}
+
+h4{
+    color: rgb(20, 97, 168);
+    padding-top: 3%;
+    padding-left: 1%;
+}
+
+.botonTiempo{
+    border-radius: 3px;
+
+
+}
+
+.chevron{
+    margin-left: auto;
+}
+
+
+.horizontal {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap:wrap;
+}
+
+.horizontal2 {
+   
+    display: flex;
+    justify-content: space-around;
+    height: 12em;
+    
+}
+
+.tarjeta-categorias{
+ 
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    
+    overflow-x: hidden;
+}
+
+.tarjeta-categorias:hover{
+    overflow-x:auto;
+}
+
+.tarjeta-categorias img{
+    width: 100%;
+}
+
+.tarjeta-categorias .objeto{
+    width: 10em;
+    height: 5em;
+    text-align: center;
+}
+

@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class AgregarCategoriaComponent implements OnInit {
 
   formularioDeCategorias:FormGroup;
+  imagenPrevisualizacion:any;
 
 
   constructor(public formulario:FormBuilder,
@@ -41,12 +42,14 @@ export class AgregarCategoriaComponent implements OnInit {
     var binaryString = readerEvent.target.result;
     this.formularioDeCategorias.value['imagen'] = btoa(binaryString);
     console.log(this.formularioDeCategorias.value['imagen']);
+    this.imagenPrevisualizacion = this.formularioDeCategorias.value['imagen'];
   }
 
   ngOnInit(): void {
   }
 
   enviarDatos():any{
+    this.formularioDeCategorias.value['imagen'] = this.imagenPrevisualizacion;
     console.log("Sujeto");
     console.log(this.formularioDeCategorias.value);
     this.crudService.AgregarCategoria(this.formularioDeCategorias.value).subscribe(respuesta =>{

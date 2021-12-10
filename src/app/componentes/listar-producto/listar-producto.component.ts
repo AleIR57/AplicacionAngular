@@ -9,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class ListarProductoComponent implements OnInit {
 
   Productos:any;
+  Categorias: any;
+
 
   constructor(private crudService: CrudService) { }
 
   ngOnInit(): void {
+    this.crudService.ObtenerCategorias().subscribe(respuesta =>{
+      console.log(respuesta);
+      this.Categorias=respuesta;
+    });
     this.crudService.ObtenerProductos().subscribe(respuesta =>{
       console.log(respuesta);
       this.Productos=respuesta;

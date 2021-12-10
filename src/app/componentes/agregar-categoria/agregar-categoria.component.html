@@ -1,4 +1,4 @@
-<p>Sujeto mostrala ya mismo</p>
+
 <div class = "container">
 
 
@@ -22,12 +22,13 @@
 
               <div class="mb-3">
                 <label for="">Foto: </label>
-                <input type = "file" accept="image/*" (change)="seleccionarArchivo($event)" formControlName = "imagen" name = "" id = "imagen">
+                <input required type = "file" accept="image/*" (change)="seleccionarArchivo($event)" formControlName = "imagen" name = "" id = "imagen">
+                <img *ngIf="imagenPrevisualizacion" src="data:image/png;base64,{{imagenPrevisualizacion}}">
               </div>
 
               <div class="btn-group" role="group" aria-label="">
-                <button type="submit" class="btn btn-success">Agregar</button>
-                <button type="button" class="btn btn-primary" routerLink="/listar-usuario">Cancelar</button>
+                <button type="submit" class="btn btn-outline-primary">Agregar</button>
+                <button type="button" class="btn btn-outline-secondary" routerLink="/listar-usuario">Cancelar</button>
             </div>
         </form>
     </div>

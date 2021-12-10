@@ -3,16 +3,15 @@
 
     <div class="card">
         <div class="card-header">
-            <a routerLink="/agregar-categoria/" class = "btn btn-success" role = "button">Agregar nueva categoría </a>
+            Lista de categorías <a routerLink="/agregar-categoria/" class = "btn btn-info" role = "button"><i class="fas fa-plus"></i></a>
         </div>
-        <div class="card-body">
+        <div class="card-body text-center">
          <table class="table">
              <thead>
                  <tr>
                      <th>IMAGEN</th>
                      <th>CÓDIGO</th>
                      <th>NOMBRE</th>
-                     <th>DESCRIPCIÓN</th>
                      <th>ACCIONES</th>
                  </tr>
              </thead>
@@ -21,9 +20,8 @@
                     <td><img src="data:image/png;base64,{{categoria.imagen}}"></td>
                      <td>{{ categoria.idCategoria }}</td>
                      <td> {{categoria.nombre }} </td>
-                     <td> {{categoria.descripcion}} </td>
-                     <td> <a routerLink="/editar-categoria/{{categoria.idCategoria}}" class = "btn btn-info" role = "button">EDITAR </a>| 
-                        <a name = "" id = "" (click)="borrarRegistro(categoria.idCategoria, iControl)" class = "btn btn-danger" role = "button">BORRAR</a></td>
+                     <td> <a routerLink="/editar-categoria/{{categoria.idCategoria}}" class = "btn btn-warning" role = "button"><i class="fas fa-pencil-alt"></i> </a> | 
+                        <a name = "" id = "" (click)="borrarRegistro(categoria.idCategoria, iControl)" class = "btn btn-danger" role = "button"><i class="fas fa-trash-alt"></i></a></td>
                  </tr>
                  
              </tbody>
