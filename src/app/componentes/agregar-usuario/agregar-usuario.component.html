@@ -1,4 +1,4 @@
-<p>Sujeto mostrala ya mismo</p>
+
 <div class = "container">
 
 
@@ -24,57 +24,55 @@
               <label for="">Correo: </label>
               <input required type="email"
                 class="form-control" formControlName="correo" name="" id="correo" aria-describedby="helpId" placeholder="Escribe tu correo">
-              <small id="helpId" class="form-text text-muted">Help text</small>
             </div>
 
             <div class="mb-3">
                 <label for="">Contraseña: </label>
                 <input type="password"
                   class="form-control" formControlName="contrasena" name="" id="contrasena" aria-describedby="helpId" placeholder="Escribe tu contraseña">
-                <small id="helpId" class="form-text text-muted">Help text</small>
               </div>
             
             <div class="mb-3">
                 <label for="">Teléfono:  </label>
                 <input required type="number"
                   class="form-control" formControlName="telefono" name="" id="telefono" aria-describedby="helpId" placeholder="Escribe tu teléfono">
-                <small id="helpId" class="form-text text-muted">Help text</small>
             </div>
         
             <div class="mb-3">
                 <label for="">Dirección: </label>
                 <input required type="text"
                   class="form-control" formControlName="direccion" name="" id="direccion" aria-describedby="helpId" placeholder="Escribe tu dirección">
-                <small id="helpId" class="form-text text-muted">Help text</small>
             </div>
 
             <div class="mb-3">
                 <label for="">Cédula: </label>
                 <input required type="number"
                   class="form-control" formControlName="cedula" name="" id="cedula" aria-describedby="helpId" placeholder="Escribe tu cédula">
-                <small id="helpId" class="form-text text-muted">Help text</small>
             </div>
 
+            
             <div class="mb-3">
-                <label for="">Foto: </label>
-                <input required type="text"
-                  class="form-control" formControlName="foto" name="" id="foto" aria-describedby="helpId" placeholder="Escribe tu foto">
-                <small id="helpId" class="form-text text-muted">Help text</small>
+              <label for="">Foto:</label>
+              <input type = "file" accept="image/*" (change)="seleccionarArchivo($event)" formControlName = "foto" name = "" id = "foto" class = "">
+              <div class = " foto">
+              <img *ngIf="imagenPrevisualizacion" src="data:image/png;base64,{{imagenPrevisualizacion}}">
+              </div>
             </div>
 
 
             <div class="mb-3">
-                <label for="">Rol </label>
-                <input required type="number"
-                  class="form-control" formControlName="idrol" name="" id="rol" aria-describedby="helpId" placeholder="Escribe tu rol">
-                <small id="helpId" class="form-text text-muted">Help text</small>
+              <label for="">Rol:</label>
+              <select class="form-select" aria-label="Default select example" formControlName = "idrol" >
+                <option selected>Selecciona un rol</option>
+                <option *ngFor="let rol of Roles; let iControl=index" value="{{rol.idRol}}">{{rol.nombre}}</option>
+              </select>
             </div>
           
   
 
-            <div class="btn-group" role="group" aria-label="">
-                <button type="submit" class="btn btn-success">Agregar</button>
-                <button type="button" class="btn btn-primary" routerLink="/listar-usuario">Cancelar</button>
+            <div class="btn-group botones" role="group" aria-label="">
+                <button type="submit" class="btn btn-outline-primary">Agregar</button>  
+                <button type="button" class="btn btn-outline-secondary" routerLink="/listar-usuario">Cancelar</button>
             </div>
         </form>
     </div>

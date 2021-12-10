@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Usuario, Categoria, Producto, Oferta, Envio } from './Usuario';
+import { Usuario, Categoria, Producto, Oferta, Envio, Rol } from './Usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,7 @@ export class CrudService {
   API3: string= 'http://localhost/apisubastas/Producto/index.php'
   API4: string= 'http://localhost/apisubastas/Oferta/index.php'
   API5: string= 'http://localhost/apisubastas/Envio/index.php'
+  API6: string= 'http://localhost/apisubastas/Rol/index.php'
 
   constructor(private clienteHttp:HttpClient) { }
 
@@ -118,6 +119,26 @@ export class CrudService {
 
   EditarEnvio(idEnvio:any,datosEnvio:any):Observable<any>{
     return this.clienteHttp.post(this.API5+"?actualizar="+idEnvio,datosEnvio);
+  }
+
+  AgregarRol(datosRol:Rol):Observable<any>{
+    return this.clienteHttp.post(this.API6+"?insertar=1",datosRol);
+  }
+  
+  ObtenerRoles(){
+    return this.clienteHttp.get(this.API6);
+  }
+
+  BorrarRol(idRol:any):Observable<any>{
+    return this.clienteHttp.get(this.API6+"?borrar="+idRol);
+  }
+
+  ObtenerRol(idRol:any):Observable<any>{
+    return this.clienteHttp.get(this.API6+"?consultar="+idRol);
+  }
+
+  EditarRol(idRol:any,datosRol:any):Observable<any>{
+    return this.clienteHttp.post(this.API6+"?actualizar="+idRol,datosRol);
   }
 
 
