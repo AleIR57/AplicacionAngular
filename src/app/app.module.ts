@@ -14,7 +14,13 @@ import { EditarCategoriaComponent } from './componentes/editar-categoria/editar-
 import { CrudService } from './servicio/crud.service';
 import { AgregarProductoComponent } from './componentes/agregar-producto/agregar-producto.component';
 import { EditarProductoComponent } from './componentes/editar-producto/editar-producto.component';
-import { ListarProductoComponent } from './componentes/listar-producto/listar-producto.component'; 
+import { ListarProductoComponent } from './componentes/listar-producto/listar-producto.component';
+import { AgregarOfertaComponent } from './componentes/agregar-oferta/agregar-oferta.component';
+import { ListarOfertaComponent } from './componentes/listar-oferta/listar-oferta.component';
+import { EditarOfertaComponent } from './componentes/editar-oferta/editar-oferta.component';
+import { AgregarEnvioComponent } from './componentes/agregar-envio/agregar-envio.component';
+import { ListarEnvioComponent } from './componentes/listar-envio/listar-envio.component';
+import { EditarEnvioComponent } from './componentes/editar-envio/editar-envio.component'; 
 
 
 @NgModule({
@@ -28,7 +34,13 @@ import { ListarProductoComponent } from './componentes/listar-producto/listar-pr
     EditarCategoriaComponent,
     AgregarProductoComponent,
     EditarProductoComponent,
-    ListarProductoComponent
+    ListarProductoComponent,
+    AgregarOfertaComponent,
+    ListarOfertaComponent,
+    EditarOfertaComponent,
+    AgregarEnvioComponent,
+    ListarEnvioComponent,
+    EditarEnvioComponent
   ],
   imports: [
     BrowserModule,

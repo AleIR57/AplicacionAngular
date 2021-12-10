@@ -1,3 +1,4 @@
+import { AgregarOfertaComponent } from './componentes/agregar-oferta/agregar-oferta.component';
 import { AgregarCategoriaComponent } from './componentes/agregar-categoria/agregar-categoria.component';
 import { ListarUsuarioComponent } from './componentes/listar-usuario/listar-usuario.component';
 import { EditarUsuarioComponent } from './componentes/editar-usuario/editar-usuario.component';
@@ -9,6 +10,11 @@ import { ListarCategoriaComponent } from './componentes/listar-categoria/listar-
 import { AgregarProductoComponent } from './componentes/agregar-producto/agregar-producto.component';
 import { EditarProductoComponent } from './componentes/editar-producto/editar-producto.component';
 import { ListarProductoComponent } from './componentes/listar-producto/listar-producto.component';
+import { ListarOfertaComponent } from './componentes/listar-oferta/listar-oferta.component';
+import { EditarOfertaComponent } from './componentes/editar-oferta/editar-oferta.component';
+import { AgregarEnvioComponent } from './componentes/agregar-envio/agregar-envio.component';
+import { ListarEnvioComponent } from './componentes/listar-envio/listar-envio.component';
+import { EditarEnvioComponent } from './componentes/editar-envio/editar-envio.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'agregar-usuario'},
@@ -21,6 +27,12 @@ const routes: Routes = [
   {path: 'agregar-producto', component: AgregarProductoComponent},
   {path: 'listar-producto', component: ListarProductoComponent},
   {path: 'editar-producto/:id', component: EditarProductoComponent},
+  {path: 'agregar-oferta', component: AgregarOfertaComponent},
+  {path: 'listar-oferta', component: ListarOfertaComponent},
+  {path: 'editar-oferta/:id', component: EditarOfertaComponent},
+  {path: 'agregar-envio', component: AgregarEnvioComponent},
+  {path: 'listar-envio', component: ListarEnvioComponent},
+  {path: 'editar-envio/:id', component: EditarEnvioComponent}
 
 
 ];

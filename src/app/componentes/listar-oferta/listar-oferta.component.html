@@ -1,0 +1,29 @@
+
+<div class = "container">
+
+    <div class="card">
+        <div class="card-header">
+            <a routerLink="/agregar-oferta/" class = "btn btn-success" role = "button">Agregar nueva categoría </a>
+        </div>
+        <div class="card-body">
+         <table class="table">
+             <thead>
+                 <tr>
+                     <th>CÓDIGO</th>
+                     <th>PRECIO</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <tr *ngFor="let oferta of Ofertas; let iControl=index">
+                     <td>{{ oferta.idOferta }}</td>
+                     <td> {{ oferta.precio }} </td>
+                     <td> <a routerLink="/editar-oferta/{{oferta.idOferta}}" class = "btn btn-info" role = "button">EDITAR </a>| 
+                        <a name = "" id = "" (click)="borrarRegistro(oferta.idOferta, iControl)" class = "btn btn-danger" role = "button">BORRAR</a></td>
+                 </tr>
+                 
+             </tbody>
+         </table>
+        </div>
+      </div>
+    
+    </div>

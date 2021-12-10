@@ -1,1 +1,76 @@
-<p>agregar-producto works!</p>
+<p>Sujeto mostrala ya mismo</p>
+<div class = "container">
+
+
+<div class="card">
+    <div class="card-header">
+        Agregar producto
+    </div>
+    <div class="card-body">
+        <form ngNativeValidate [formGroup] = "formularioDeProductos" (ngSubmit)="enviarDatos()"> 
+            <div class="mb-3">
+              <label for="">Nombre: </label>
+              <input required type="text"
+                class="form-control" formControlName="nombre" name="" id="nombre"  placeholder="Escribe el nombre del producto">
+            </div>
+
+            <div class="mb-3">
+                <label for="">Marca: </label>
+                <input required type="text"
+                  class="form-control" formControlName="marca" name="" id="marca" placeholder="Escribe la marca del producto">
+              </div>
+
+            <div class="mb-3">
+              <label for="">Modelo: </label>
+              <input required type="text"
+                class="form-control" formControlName="modelo" name="" id="modelo" aria-describedby="helpId" placeholder="Escribe el modelo del producto">
+              <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+
+            <div class="mb-3">
+                <label for="">Descripción: </label>
+                <input type="text"
+                  class="form-control" formControlName="descripcion" name="" id="descripcion" aria-describedby="helpId" placeholder="Haz una descripción sobre el producto">
+                <small id="helpId" class="form-text text-muted">Help text</small>
+              </div>
+            
+            <div class="mb-3">
+                <label for="">Categoría  </label>
+                <input required type="number"
+                  class="form-control" formControlName="idCategoria" name="" id="idCategoria" aria-describedby="helpId" placeholder="Define la categoría del producto">
+                <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+        
+            <div class="mb-3">
+                <label for="">Fecha de finalización: </label>
+                <input required type="text"
+                  class="form-control" formControlName="fechafinalizacion" name="" id="fechafinalizacion" aria-describedby="helpId" placeholder="Escribe la fecha de finalización del producto">
+                <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+
+            <div class="mb-3">
+                <label for="">Precio base: </label>
+                <input required type="number"
+                  class="form-control" formControlName="precioBase" name="" id="precioBase" aria-describedby="helpId" placeholder="Define el precio base por el cual los usuarios van a empezar a ofertar">
+                <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="">Foto: </label>
+                <input type = "file" accept="image/*" (change)="seleccionarArchivo($event)" formControlName = "foto" name = "" id = "foto">
+              </div>
+
+          
+  
+
+            <div class="btn-group" role="group" aria-label="">
+                <button type="submit" class="btn btn-success">Agregar</button>
+                <button type="button" class="btn btn-primary" routerLink="/listar-usuario">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+</div>

@@ -1,0 +1,43 @@
+<p>Sujeto mostrala ya mismo</p>
+<div class = "container">
+
+
+<div class="card">
+    <div class="card-header">
+        Editar oferta
+    </div>
+    <div class="card-body">
+        <form ngNativeValidate [formGroup] = "formularioDeOfertas" (ngSubmit)="enviarDatos()"> 
+            <div class="mb-3">
+                <label for="">Usuario: </label>
+                <input required type="text"
+                  class="form-control" formControlName="idUsuario" name="" id="idUsuario"  placeholder="Escribe el nombre de la categoría">
+              </div>
+              <div class="mb-3">
+                <label for="">Producto: </label>
+                <input required type="text"
+                  class="form-control" formControlName="idProducto" name="" id="idProducto"  placeholder="Escribe el nombre de la categoría">
+              </div>
+            <div class="mb-3">
+              <label for="">Precio: </label>
+              <input required type="text"
+                class="form-control" formControlName="precio" name="" id="precio"  placeholder="Escribe el nombre de la categoría">
+            </div>
+
+            <div class="mb-3">
+                <label for="">Estado: </label>
+                <input required type="text"
+                  class="form-control" formControlName="idEstado" name="" id="idEstado"  placeholder="Escribe el nombre de la categoría">
+              </div>
+        
+
+              <div class="btn-group" role="group" aria-label="">
+                <button type="submit" class="btn btn-success">Agregar</button>
+                <button type="button" class="btn btn-primary" routerLink="/listar-usuario">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+</div>

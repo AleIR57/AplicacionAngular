@@ -1,1 +1,34 @@
-<p>listar-producto works!</p>
+
+<div class = "container">
+
+    <div class="card">
+        <div class="card-header">
+            <a routerLink="/agregar-producto/" class = "btn btn-success" role = "button">Agregar nuevo producto </a>
+        </div>
+        <div class="card-body">
+         <table class="table">
+             <thead>
+                 <tr>
+                     <td>IMAGEN</td>
+                     <th>CÓDIGO</th>
+                     <th>NOMBRE</th>
+                     <th>MARCA</th>
+                     <th>ACCIONES</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <tr *ngFor="let producto of Productos; let iControl=index">
+                     <td><img src="data:image/png;base64,{{producto.foto}}"></td>
+                     <td> {{ producto.idProducto }} </td>
+                     <td> {{producto.nombre}} </td>
+                     <td> {{producto.marca}} </td>
+                     <td> <a routerLink="/editar-producto/{{producto.idProducto}}" class = "btn btn-info" role = "button">EDITAR </a>| 
+                        <a name = "" id = "" (click)="borrarRegistro(producto.idProducto, iControl)" class = "btn btn-danger" role = "button">BORRAR</a></td>
+                 </tr>
+                 
+             </tbody>
+         </table>
+        </div>
+      </div>
+    
+    </div>

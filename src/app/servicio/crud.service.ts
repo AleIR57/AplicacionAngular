@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Usuario, Categoria } from './Usuario';
+import { Usuario, Categoria, Producto, Oferta, Envio } from './Usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,9 @@ export class CrudService {
 
   API: string='http://localhost/apisubastas/Usuario/index.php'
   API2: string= 'http://localhost/apisubastas/Categoria/index.php'
+  API3: string= 'http://localhost/apisubastas/Producto/index.php'
+  API4: string= 'http://localhost/apisubastas/Oferta/index.php'
+  API5: string= 'http://localhost/apisubastas/Envio/index.php'
 
   constructor(private clienteHttp:HttpClient) { }
 
@@ -40,7 +43,6 @@ export class CrudService {
     return this.clienteHttp.post(this.API2+"?insertar=1",datosCategoria);
   }
 
-
   ObtenerCategorias(){
     return this.clienteHttp.get(this.API2);
   }
@@ -57,8 +59,69 @@ export class CrudService {
     return this.clienteHttp.post(this.API2+"?actualizar="+idCategoria,datosCategoria);
   }
 
-  uploadFile(archivo:any){
-    return this.clienteHttp.post('${this.URL2}subisrArchivo.php', JSON.stringify(archivo));
+  AgregarProducto(datosProducto:Producto):Observable<any>{
+    return this.clienteHttp.post(this.API3+"?insertar=1",datosProducto);
   }
+  
+  ObtenerProductos(){
+    return this.clienteHttp.get(this.API3);
+  }
+
+  BorrarProducto(idProducto:any):Observable<any>{
+    return this.clienteHttp.get(this.API3+"?borrar="+idProducto);
+  }
+
+  ObtenerProducto(idProducto:any):Observable<any>{
+    return this.clienteHttp.get(this.API3+"?consultar="+idProducto);
+  }
+
+  EditarProducto(idProducto:any,datosProducto:any):Observable<any>{
+    return this.clienteHttp.post(this.API3+"?actualizar="+idProducto,datosProducto);
+  }
+
+  AgregarOferta(datosOferta:Oferta):Observable<any>{
+    return this.clienteHttp.post(this.API4+"?insertar=1",datosOferta);
+  }
+  
+  ObtenerOfertas(){
+    return this.clienteHttp.get(this.API4);
+  }
+
+  BorrarOferta(idOferta:any):Observable<any>{
+    return this.clienteHttp.get(this.API4+"?borrar="+idOferta);
+  }
+
+  ObtenerOferta(idOferta:any):Observable<any>{
+    return this.clienteHttp.get(this.API4+"?consultar="+idOferta);
+  }
+
+  EditarOferta(idOferta:any,datosOferta:any):Observable<any>{
+    return this.clienteHttp.post(this.API4+"?actualizar="+idOferta,datosOferta);
+  }
+
+  
+  AgregarEnvio(datosEnvio:Envio):Observable<any>{
+    return this.clienteHttp.post(this.API5+"?insertar=1",datosEnvio);
+  }
+  
+  ObtenerEnvios(){
+    return this.clienteHttp.get(this.API5);
+  }
+
+  BorrarEnvio(idEnvio:any):Observable<any>{
+    return this.clienteHttp.get(this.API5+"?borrar="+idEnvio);
+  }
+
+  ObtenerEnvio(idEnvio:any):Observable<any>{
+    return this.clienteHttp.get(this.API5+"?consultar="+idEnvio);
+  }
+
+  EditarEnvio(idEnvio:any,datosEnvio:any):Observable<any>{
+    return this.clienteHttp.post(this.API5+"?actualizar="+idEnvio,datosEnvio);
+  }
+
+
+
+  
 
 }

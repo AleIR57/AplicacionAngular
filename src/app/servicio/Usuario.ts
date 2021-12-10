@@ -12,6 +12,11 @@ export class Usuario {
     idRol!: number;
 }
 
+export class Rol{
+    idRol!: number;
+    nombre!: String;
+}
+
 
 export class Categoria {
     id!: number;
@@ -32,6 +37,35 @@ export class Producto{
     fechafinalizacion!: String;
     precioBase!: number;
     precioActual!: number;
-    fotos!: String[];
+    foto!: String;
     idUsuario!: number;
+}
+
+
+export class Oferta{
+    idOferta!: number;
+    idUsuario!: number;
+    idProducto!: number;
+    precio !: number;
+    idEstado!: number;
+    fecha!: Date;
+}
+
+
+export class Estado{
+    idEstado!: number;
+    nombre!: String;
+}
+
+
+export class Envio{
+    idEnvio!: number;
+    idOferta!: number;
+    codigoPostal!: number;
+    barrio!: String;
+    ciudad!: String;
+    direccion!: String;
+    referencia!: String;
+    latitud!: String;
+    Longitud!: String;
 }
