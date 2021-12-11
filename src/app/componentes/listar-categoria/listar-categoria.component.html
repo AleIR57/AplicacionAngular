@@ -20,8 +20,8 @@
                     <td><img src="data:image/png;base64,{{categoria.imagen}}"></td>
                      <td>{{ categoria.idCategoria }}</td>
                      <td> {{categoria.nombre }} </td>
-                     <td> <a routerLink="/editar-categoria/{{categoria.idCategoria}}" class = "btn btn-warning" role = "button"><i class="fas fa-pencil-alt"></i> </a> | 
-                        <a name = "" id = "" (click)="borrarRegistro(categoria.idCategoria, iControl)" class = "btn btn-danger" role = "button"><i class="fas fa-trash-alt"></i></a></td>
+                     <td> <a routerLink="/editar-categoria/{{categoria.idCategoria}}" class = "btn btn-outline-warning" role = "button"><i class="fas fa-pencil-alt"></i> </a> | 
+                        <a name = "" id = "" (click)="borrarRegistro(categoria.idCategoria, iControl)" class = "btn btn-outline-danger" role = "button"><i class="fas fa-trash-alt"></i></a></td>
                  </tr>
                  
              </tbody>

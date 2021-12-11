@@ -31,6 +31,7 @@ const routes: Routes = [
   {path: 'listar-oferta', component: ListarOfertaComponent},
   {path: 'editar-oferta/:id', component: EditarOfertaComponent},
   {path: 'agregar-envio', component: AgregarEnvioComponent},
+  {path: 'agregar-envio/:id', component: AgregarEnvioComponent},
   {path: 'listar-envio', component: ListarEnvioComponent},
   {path: 'editar-envio/:id', component: EditarEnvioComponent}
 

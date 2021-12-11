@@ -109,6 +109,12 @@
     background: none;
 }
 
+.navbar-medidas{
+    position: absolute;
+   visibility: hidden;
+  
+}
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;
@@ -134,5 +140,14 @@
     #wrapper.toggled #page-content-wrapper {
         position: relative;
         margin-right: 0;
+    }
+
+    
+}
+
+@media screen and(max-width: 768px){
+    .navbar-medidas{
+        position:  relative;
+        
     }
 }

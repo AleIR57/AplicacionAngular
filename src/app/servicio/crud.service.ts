@@ -29,6 +29,8 @@ export class CrudService {
     return this.clienteHttp.get(this.API);
   }
 
+
+
   BorrarUsuario(idUsuario:any):Observable<any>{
     return this.clienteHttp.get(this.API+"?borrar="+idUsuario);
   }
@@ -77,10 +79,16 @@ export class CrudService {
   ObtenerProducto(idProducto:any):Observable<any>{
     return this.clienteHttp.get(this.API3+"?consultar="+idProducto);
   }
+  
 
   EditarProducto(idProducto:any,datosProducto:any):Observable<any>{
     return this.clienteHttp.post(this.API3+"?actualizar="+idProducto,datosProducto);
   }
+
+  EditarPrecioProducto(idProducto:any,datosProducto:any):Observable<any>{
+    return this.clienteHttp.post(this.API3+"?actualizar2="+idProducto,datosProducto);
+  }
+
 
   AgregarOferta(datosOferta:Oferta):Observable<any>{
     return this.clienteHttp.post(this.API4+"?insertar=1",datosOferta);
@@ -90,8 +98,17 @@ export class CrudService {
     return this.clienteHttp.get(this.API4);
   }
 
+
   ObtenerOfertasDeProducto(idProducto:any):Observable<any>{
     return this.clienteHttp.get(this.API7+"?consultar2="+idProducto);
+  }
+
+  ObtenerOfertasDeUnUsuario(idUsuario:any):Observable<any>{
+    return this.clienteHttp.get(this.API7+"?consultar4="+idUsuario);
+  }
+
+  ObtenerOfertasDeUsuarios(idUsuario:any, idProducto:any):Observable<any>{
+    return this.clienteHttp.get(this.API7+"?consultar3="+idUsuario,idProducto);
   }
 
   BorrarOferta(idOferta:any):Observable<any>{

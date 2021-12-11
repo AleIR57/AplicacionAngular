@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CrudService } from 'src/app/servicio/crud.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -11,12 +11,23 @@ import { Component, OnInit } from '@angular/core';
 export class AgregarEnvioComponent implements OnInit {
 
   formularioDeEnvios:FormGroup;
-
+  elID: any;
+  Ofertas:any;
+  idOferta: any;
 
   constructor(public formulario:FormBuilder,
-    private crudService: CrudService, private ruteador:Router) { 
+    private crudService: CrudService, private ruteador:Router,
+    private activateRoute:ActivatedRoute,) { 
+      
+      this.elID=this.activateRoute.snapshot.paramMap.get('id');
+
+      this.crudService.ObtenerOferta(this.elID).subscribe(respuesta =>{
+        console.log(respuesta);
+          this.idOferta = respuesta[0]['idOferta'];
+      });
+
     this.formularioDeEnvios=this.formulario.group({
-      idOferta:[null],
+      idOferta:[this.idOferta],
       codigoPostal:[null],
       barrio:[''],
       ciudad:[''],

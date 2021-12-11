@@ -9,13 +9,24 @@ import { Component, OnInit } from '@angular/core';
 export class ListarOfertaComponent implements OnInit {
 
   Ofertas:any;
+  
 
   constructor(private crudService: CrudService) { }
 
   ngOnInit(): void {
-    this.crudService.ObtenerOfertas().subscribe(respuesta =>{
+    this.crudService.ObtenerOfertasDeUnUsuario(1).subscribe(respuesta =>{
       console.log(respuesta);
-      this.Ofertas=respuesta;
+      for(let i = 0; i < respuesta.length; i++){
+        console.log("El id del producto es: " + respuesta[i]['idProducto']);
+        if(respuesta[i]['idProducto'] != respuesta[i+1]['idProducto']){
+          this.Ofertas=respuesta;
+        }
+        else{
+          console.log("Sujeto");
+          this.Ofertas.splice(respuesta[i], 1);
+        }
+      }
+      
     });
   }
 

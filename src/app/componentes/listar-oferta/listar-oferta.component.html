@@ -1,29 +1,24 @@
 
 <div class = "container">
 
-    <div class="card">
-        <div class="card-header">
-            <a routerLink="/agregar-oferta/" class = "btn btn-success" role = "button">Agregar nueva categoría </a>
+    <div class="card-body horizontal">
+            
+        <div class="row" *ngFor="let oferta of Ofertas; let iControl=index">
+            <div class="col-md12 p-12">
+                <div class="card tarjeta" style="width: 18rem;" routerLink="/editar-producto/{{oferta.idProducto}}">
+                    <img class="card-img-top" src="data:image/png;base64,{{oferta.foto}}" alt="Card image cap">
+                    <div class = "botones">
+                    <a href="#" class="btn btn-light botonPrecio">{{ oferta.idOferta }}</a>
+                    <a href="#" class="btn btn-info botonTiempo">$ {{ oferta.precio }} </a>
+                </div>
+                    <div class="card-body">
+                      <h5 class="card-title"></h5>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+            </div>
         </div>
-        <div class="card-body">
-         <table class="table">
-             <thead>
-                 <tr>
-                     <th>CÓDIGO</th>
-                     <th>PRECIO</th>
-                 </tr>
-             </thead>
-             <tbody>
-                 <tr *ngFor="let oferta of Ofertas; let iControl=index">
-                     <td>{{ oferta.idOferta }}</td>
-                     <td> {{ oferta.precio }} </td>
-                     <td> <a routerLink="/editar-oferta/{{oferta.idOferta}}" class = "btn btn-info" role = "button">EDITAR </a>| 
-                        <a name = "" id = "" (click)="borrarRegistro(oferta.idOferta, iControl)" class = "btn btn-danger" role = "button">BORRAR</a></td>
-                 </tr>
-                 
-             </tbody>
-         </table>
-        </div>
-      </div>
-    
+        
+
+   
     </div>

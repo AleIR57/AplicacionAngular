@@ -1,7 +1,10 @@
+import { Oferta } from './../../servicio/Usuario';
 import { CrudService } from 'src/app/servicio/crud.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import * as countdown from 'countdown';
+
 
 @Component({
   selector: 'app-editar-producto',
@@ -11,9 +14,11 @@ import { Component, OnInit } from '@angular/core';
 export class EditarProductoComponent implements OnInit {
 
   elID: any;
+  formularioDeOfertas: FormGroup;
   formularioDeProductos:FormGroup;
   Categorias:any;
   Ofertas:any;
+  Usuarios:any;
   imagenPrevisualizacion:any;
   fechafinalizacion:any;
   desplegable = false;
@@ -25,6 +30,11 @@ export class EditarProductoComponent implements OnInit {
   precioActual: any;
   idUsuario: any;
   nombre: any;
+  cantidadOfertas: any;
+  contador:any;
+  x:any;
+  demo:any;
+  demoBoolean = true;
 
   constructor(
     private activateRoute:ActivatedRoute,
@@ -32,6 +42,8 @@ export class EditarProductoComponent implements OnInit {
     public formulario:FormBuilder,
     private ruteador: Router
   ) { 
+
+   
 
     this.crudService.ObtenerCategorias().subscribe(respuesta =>{
       console.log(respuesta);
@@ -42,10 +54,29 @@ export class EditarProductoComponent implements OnInit {
 
     this.elID=this.activateRoute.snapshot.paramMap.get('id');
 
+    this.formularioDeOfertas=this.formulario.group({
+      idUsuario:[3],
+      idProducto:[this.elID],
+      idEstado:['Vigente'],
+      precio:[null],
+      fecha: new Date,
+    });
+
     this.crudService.ObtenerOfertasDeProducto(this.elID).subscribe(respuesta =>{
       console.log(respuesta);
       this.Ofertas=respuesta;
+      this.cantidadOfertas = respuesta.length;
+      /*for(let i = 0; i < respuesta.length; i++){
+        this.crudService.ObtenerOfertasDeUsuarios(respuesta[i]['idUsuario'], this.elID).subscribe(respuesta2 =>{
+          console.log("Estos son los usuarios: ", respuesta2);
+          this.Usuarios=respuesta2;
+          console.log(respuesta[i]['idUsuario']);
+        });
+      }*/
+     
     });
+
+    
     console.log(this.elID);
     this.crudService.ObtenerProducto(this.elID).subscribe(respuesta =>{
       this.fechainicio = respuesta[0]['fechainicio'];
@@ -57,9 +88,24 @@ export class EditarProductoComponent implements OnInit {
       this.precioActual = respuesta[0]['precioActual'];
       this.idUsuario = respuesta[0]['idUsuario'];
       this.nombre = respuesta[0]['nombre'];
-
-   
       this.fechafinalizacion = respuesta[0]['fechafinalizacion'];
+      this.contador = new Date(this.fechafinalizacion);
+      
+      this.x = setInterval(()=>{
+        var now = new Date().getTime();
+        var distance = this.contador - now;
+        var days =  Math.floor(distance/(1000*60*60*24));
+        var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+        var minutes = Math.floor((distance % (1000*60*60))/ (1000*60));
+        var seconds = Math.floor((distance % (1000*60)) / 1000);
+        this.demo = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        if(distance < 0){
+          clearInterval(this.x);
+          this.demo = "Cerrada";
+          this.demoBoolean = false;
+        }
+      })
+
       console.log(this.fechafinalizacion);
       console.log(respuesta);
       this.formularioDeProductos.setValue({
@@ -96,6 +142,7 @@ export class EditarProductoComponent implements OnInit {
        
 
   }
+  
 
   seleccionarArchivo(event:any){
     var files = event.target.files;
@@ -120,6 +167,8 @@ export class EditarProductoComponent implements OnInit {
 
 
   ngOnInit(): void {
+    
+   
   }
 
   enviarDatos():any{
@@ -130,6 +179,101 @@ export class EditarProductoComponent implements OnInit {
       this.ruteador.navigateByUrl('/listar-producto');
     });
     
+  }
+
+  agregarOferta():any{
+    console.log("Sujeto");
+    console.log(this.formularioDeOfertas.value);
+    this.crudService.AgregarOferta(this.formularioDeOfertas.value).subscribe(respuesta =>{
+      this.crudService.ObtenerOfertasDeProducto(this.elID).subscribe(respuesta2 =>{
+        console.log(respuesta2);
+        this.Ofertas=respuesta2;
+        this.cantidadOfertas = respuesta2.length;
+      });
+      this.Ofertas.push(this.cantidadOfertas, 1);
+      this.ruteador.navigateByUrl('/editar-producto/'+this.elID);
+    });
+    this.formularioDeProductos.value['precioActual'] = this.formularioDeOfertas.value['precio'];
+
+    this.crudService.EditarPrecioProducto(this.elID, this.formularioDeProductos.value).subscribe(respuesta3 =>{
+      console.log(respuesta3);
+      this.crudService.ObtenerProducto(this.elID).subscribe(respuesta4 =>{
+        this.fechainicio = respuesta4[0]['fechainicio'];
+        this.descripcion = respuesta4[0]['descripcion'];
+        this.imagenPrevisualizacion = respuesta4[0]['foto'];
+        this.marca = respuesta4[0]['marca'];
+        this.modelo = respuesta4[0]['modelo'];
+        this.precioBase = respuesta4[0]['precioBase'];
+        this.precioActual = respuesta4[0]['precioActual'];
+        this.idUsuario = respuesta4[0]['idUsuario'];
+        this.nombre = respuesta4[0]['nombre'];
+        this.fechafinalizacion = respuesta4[0]['fechafinalizacion'];
+        this.contador = new Date(this.fechafinalizacion);
+        
+        this.x = setInterval(()=>{
+          var now = new Date().getTime();
+          var distance = this.contador - now;
+          var days =  Math.floor(distance/(1000*60*60*24));
+          var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+          var minutes = Math.floor((distance % (1000*60*60))/ (1000*60));
+          var seconds = Math.floor((distance % (1000*60)) / 1000);
+          this.demo = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+          if(distance < 0){
+            clearInterval(this.x);
+            this.demo = "Cerrada";
+            this.demoBoolean = false;
+          }
+        })
+  
+        console.log(this.fechafinalizacion);
+        console.log(respuesta4);
+        this.formularioDeProductos.setValue({
+          nombre:respuesta4[0]['nombre'],
+          marca:respuesta4[0]['marca'],
+          modelo:respuesta4[0]['modelo'],
+          descripcion:respuesta4[0]['descripcion'],
+          idCategoria:respuesta4[0]['idCategoria'],
+          fechainicio:respuesta4[0]['fechainicio'],
+          fechafinalizacion:respuesta4[0]['fechafinalizacion'],
+          precioBase:respuesta4[0]['precioBase'],
+          precioActual:respuesta4[0]['precioActual'],
+          foto:respuesta4[0]['foto'],
+          idUsuario:respuesta4[0]['idUsuario'],
+         
+        });
+      });
+      
+  
+      this.formularioDeProductos = this.formulario.group({
+        nombre:[''],
+        marca:[''],
+        modelo:[''],
+        descripcion:[''],
+        idCategoria:[null],
+        fechainicio: [''],
+        fechafinalizacion: [''],
+        precioBase: [null],
+        precioActual: [null],
+        foto:[''],
+        idUsuario: [null]
+      });
+      this.ruteador.navigateByUrl('/editar-producto/'+this.elID);
+    });
+
+    
+  }
+
+  borrarRegistro(idOferta:any, iControl:any){
+    console.log(idOferta);
+    console.log(iControl);
+    if(window.confirm("¿Desea borrar el registro?")){
+      
+    this.crudService.BorrarOferta(idOferta).subscribe((respuesta) =>{
+      this.Ofertas.splice(iControl, 1);
+    });
+
+    
+  }
   }
 
  

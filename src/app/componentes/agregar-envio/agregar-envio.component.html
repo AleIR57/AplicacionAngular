@@ -8,38 +8,33 @@
     </div>
     <div class="card-body">
         <form ngNativeValidate [formGroup] = "formularioDeEnvios" (ngSubmit)="enviarDatos()"> 
-            <div class="mb-3">
-                <label for="">Oferta: </label>
-                <input required type="text"
-                  class="form-control" formControlName="idOferta" name="" id="idOferta"  placeholder="Escribe el nombre de la categoría">
-              </div>
               <div class="mb-3">
                 <label for="">Código postal: </label>
                 <input required type="text"
-                  class="form-control" formControlName="codigoPostal" name="" id="codigoPostal"  placeholder="Escribe el nombre de la categoría">
+                  class="form-control" formControlName="codigoPostal" name="" id="codigoPostal"  placeholder="Escribe el código postal">
               </div>
             <div class="mb-3">
               <label for="">Barrio: </label>
               <input required type="text"
-                class="form-control" formControlName="barrio" name="" id="barrio"  placeholder="Escribe el nombre de la categoría">
+                class="form-control" formControlName="barrio" name="" id="barrio"  placeholder="Escribe el barrio">
             </div>
 
             <div class="mb-3">
                 <label for="">Ciudad: </label>
                 <input required type="text"
-                  class="form-control" formControlName="ciudad" name="" id="ciudad"  placeholder="Escribe el nombre de la categoría">
+                  class="form-control" formControlName="ciudad" name="" id="ciudad"  placeholder="Escribe la ciudad">
               </div>
 
               <div class="mb-3">
                 <label for="">Dirección: </label>
                 <input required type="text"
-                  class="form-control" formControlName="direccion" name="" id="direccion"  placeholder="Escribe el nombre de la categoría">
+                  class="form-control" formControlName="direccion" name="" id="direccion"  placeholder="Escribe la dirección">
               </div>
 
               <div class="mb-3">
                 <label for="">Referencia: </label>
-                <input required type="text"
-                  class="form-control" formControlName="referencia" name="" id="referencia"  placeholder="Escribe el nombre de la categoría">
+                  <textarea
+                  class="form-control" formControlName="referencia" name="" id="referencia"  placeholder="Escribe una referencia que pueda identificar el lugar de destino"></textarea>
               </div>
 
               <div class="mb-3">
