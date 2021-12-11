@@ -11,10 +11,18 @@ import { Component, OnInit } from '@angular/core';
 export class AgregarProductoComponent implements OnInit {
 
   formularioDeProductos:FormGroup;
+  Categorias:any;
+  imagenPrevisualizacion:any;
 
 
   constructor(public formulario:FormBuilder,
     private crudService: CrudService, private ruteador:Router) { 
+      this.crudService.ObtenerCategorias().subscribe(respuesta =>{
+        console.log(respuesta);
+        this.Categorias=respuesta;
+      });
+
+
     this.formularioDeProductos=this.formulario.group({
       nombre:[''],
       marca:[''],
@@ -48,12 +56,14 @@ export class AgregarProductoComponent implements OnInit {
     var binaryString = readerEvent.target.result;
     this.formularioDeProductos.value['foto'] = btoa(binaryString);
     console.log(this.formularioDeProductos.value['foto']);
+    this.imagenPrevisualizacion = this.formularioDeProductos.value['foto'];
   }
 
   ngOnInit(): void {
   }
 
   enviarDatos():any{
+    this.formularioDeProductos.value['foto'] = this.imagenPrevisualizacion;
     this.formularioDeProductos.value['precioActual'] = this.formularioDeProductos.value['precioBase'];
     console.log("Sujeto");
     console.log(this.formularioDeProductos.value);
