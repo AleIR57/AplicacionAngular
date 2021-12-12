@@ -5,15 +5,15 @@
             
         <div class="row" *ngFor="let oferta of Ofertas; let iControl=index">
             <div class="col-md12 p-12">
-                <div class="card tarjeta" style="width: 18rem;" routerLink="/editar-producto/{{oferta.idProducto}}">
-                    <img class="card-img-top" src="data:image/png;base64,{{oferta.foto}}" alt="Card image cap">
+                <div class="card tarjeta" style="width: 18rem;" routerLink="/editar-producto/{{oferta.idProducto}}" *ngFor="let obj of Productos[iControl]">
+                    <img class="card-img-top" src="data:image/png;base64,{{obj.foto}}" alt="Card image cap">
                     <div class = "botones">
-                    <a href="#" class="btn btn-light botonPrecio">{{ oferta.idOferta }}</a>
+                    <a href="#" class="btn btn-light botonPrecio"  *ngFor="let obj of Productos[iControl]">{{ obj.fechafinalizacion }}</a>
                     <a href="#" class="btn btn-info botonTiempo">$ {{ oferta.precio }} </a>
                 </div>
-                    <div class="card-body">
-                      <h5 class="card-title"></h5>
-                      <p class="card-text"></p>
+                    <div class="card-body" *ngFor="let obj of Productos[iControl]">
+                      <h5 class="card-title">{{obj.nombre}}</h5>
+                      <p class="card-text">{{obj.marca}}</p>
                     </div>
                   </div>
             </div>

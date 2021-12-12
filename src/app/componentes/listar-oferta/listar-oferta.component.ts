@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ListarOfertaComponent implements OnInit {
 
   Ofertas:any;
-  
+  Productos: any[] = [];  
 
   constructor(private crudService: CrudService) { }
 
@@ -17,14 +17,14 @@ export class ListarOfertaComponent implements OnInit {
     this.crudService.ObtenerOfertasDeUnUsuario(1).subscribe(respuesta =>{
       console.log(respuesta);
       for(let i = 0; i < respuesta.length; i++){
-        console.log("El id del producto es: " + respuesta[i]['idProducto']);
-        if(respuesta[i]['idProducto'] != respuesta[i+1]['idProducto']){
           this.Ofertas=respuesta;
-        }
-        else{
-          console.log("Sujeto");
-          this.Ofertas.splice(respuesta[i], 1);
-        }
+          for(let i = 0; i < respuesta.length; i++){
+            this.crudService.ObtenerProductoDeOferta(respuesta[i]['idOferta']).subscribe(respuesta2 =>{
+             
+              this.Productos.push(respuesta2);
+            });
+            
+          }
       }
       
     });

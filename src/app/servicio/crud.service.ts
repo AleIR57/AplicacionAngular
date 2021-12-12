@@ -116,6 +116,10 @@ export class CrudService {
     return this.clienteHttp.get(this.API7+"?consultar3="+idOferta);
   }
 
+  ObtenerProductoDeOferta(idOferta:any):Observable<any>{
+    return this.clienteHttp.get(this.API7+"?consultar5="+idOferta);
+  }
+
   BorrarOferta(idOferta:any):Observable<any>{
     return this.clienteHttp.get(this.API4+"?borrar="+idOferta);
   }
