@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import * as countdown from 'countdown';
+import  decode  from 'jwt-decode';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class EditarProductoComponent implements OnInit {
   Categorias:any;
   Ofertas:any;
   Usuarios: any[] = [];
+  Usuario2: any;
   imagenPrevisualizacion:any;
   fechafinalizacion:any;
   desplegable = false;
@@ -52,12 +54,14 @@ export class EditarProductoComponent implements OnInit {
       this.Categorias=respuesta;
     });
 
-    
+    const token = localStorage.getItem('token') as string;
+    this.Usuario2 = decode(token);
+    console.log(this.Usuario2['nombre']);
 
     this.elID=this.activateRoute.snapshot.paramMap.get('id');
 
     this.formularioDeOfertas=this.formulario.group({
-      idUsuario:[3],
+      idUsuario:[this.Usuario2['idUsuario']],
       idProducto:[this.elID],
       idEstado:['Vigente'],
       precio:[null],
@@ -270,6 +274,20 @@ export class EditarProductoComponent implements OnInit {
       this.ruteador.navigateByUrl('/editar-producto/'+this.elID);
     });
 
+    this.crudService.ObtenerOfertasDeProducto(this.elID).subscribe(respuesta =>{
+      console.log(respuesta);
+      this.Ofertas=respuesta;
+      this.cantidadOfertas = respuesta.length;
+      for(let i = 0; i < respuesta.length; i++){
+        this.crudService.ObtenerOfertasDeUsuarios(respuesta[i]['idOferta']).subscribe(respuesta2 =>{
+         
+          this.Usuarios.push(respuesta2);
+        });
+        
+      }
+      console.log("Estos son los usuarios: ", this.Usuarios);
+
+    });
     
   }
 

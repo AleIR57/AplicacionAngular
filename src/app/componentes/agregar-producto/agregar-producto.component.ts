@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { CrudService } from 'src/app/servicio/crud.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import decode from 'jwt-decode';
 
 @Component({
   selector: 'app-agregar-producto',
@@ -13,6 +14,7 @@ export class AgregarProductoComponent implements OnInit {
   formularioDeProductos:FormGroup;
   Categorias:any;
   imagenPrevisualizacion:any;
+  Usuario:any;
 
 
   constructor(public formulario:FormBuilder,
@@ -21,6 +23,11 @@ export class AgregarProductoComponent implements OnInit {
         console.log(respuesta);
         this.Categorias=respuesta;
       });
+
+      const token = localStorage.getItem('token') as string;
+      this.Usuario = decode(token);
+      console.log(this.Usuario['nombre']);
+
 
 
     this.formularioDeProductos=this.formulario.group({
@@ -34,7 +41,7 @@ export class AgregarProductoComponent implements OnInit {
       precioBase: [null],
       precioActual: [null],
       foto:[''],
-      idUsuario: [null]
+      idUsuario: [''],
 
     })
   }
@@ -63,6 +70,7 @@ export class AgregarProductoComponent implements OnInit {
   }
 
   enviarDatos():any{
+    this.formularioDeProductos.value['idUsuario'] = this.Usuario['idUsuario'];
     this.formularioDeProductos.value['foto'] = this.imagenPrevisualizacion;
     this.formularioDeProductos.value['precioActual'] = this.formularioDeProductos.value['precioBase'];
     console.log("Sujeto");

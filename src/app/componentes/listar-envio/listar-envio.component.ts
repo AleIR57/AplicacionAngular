@@ -17,6 +17,7 @@ export class ListarEnvioComponent implements OnInit {
       console.log(respuesta);
       this.Envios=respuesta;
     });
+    
   }
 
   borrarRegistro(idEnvio:any, iControl:any){

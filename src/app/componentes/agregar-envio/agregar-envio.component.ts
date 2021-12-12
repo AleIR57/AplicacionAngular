@@ -32,7 +32,8 @@ export class AgregarEnvioComponent implements OnInit {
     private activateRoute:ActivatedRoute,) { 
       let coordAux = new Coordenada(4.570868, -74.297333);
       this.coordenadas = coordAux;
-      
+
+    
       this.elID=this.activateRoute.snapshot.paramMap.get('id');
 
       this.crudService.ObtenerOferta(this.elID).subscribe(respuesta =>{

@@ -109,11 +109,11 @@
     background: none;
 }
 
-.navbar-medidas{
-    position: absolute;
-   visibility: hidden;
-  
+.logout:hover{
+    cursor: pointer;
 }
+
+
 
 @media(min-width:768px) {
     #wrapper {
