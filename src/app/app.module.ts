@@ -23,6 +23,9 @@ import { ListarEnvioComponent } from './componentes/listar-envio/listar-envio.co
 import { EditarEnvioComponent } from './componentes/editar-envio/editar-envio.component'; 
 import { GoogleMapsModule } from '@angular/google-maps';
 import { AgmCoreModule } from '@agm/core';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { AgmCoreModule } from '@agm/core';
     EditarOfertaComponent,
     AgregarEnvioComponent,
     ListarEnvioComponent,
-    EditarEnvioComponent
+    EditarEnvioComponent,
+    LoginComponent,
+    RegisterComponent,
+ 
   ],
   imports: [
     BrowserModule,

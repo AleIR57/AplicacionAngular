@@ -1,0 +1,74 @@
+
+<div class = "container">
+
+
+  <div class="card">
+      <div class="card-header">
+          Agregar usuario
+      </div>
+      <div class="card-body">
+          <form ngNativeValidate [formGroup] = "formularioDeUsuarios" (ngSubmit)="enviarDatos()"> 
+              <div class="mb-3">
+                <label for="">Nombre: </label>
+                <input required type="text"
+                  class="form-control" formControlName="nombre" name="" id="nombre"  placeholder="Escribe tu nombre">
+              </div>
+  
+              <div class="mb-3">
+                  <label for="">Apellido: </label>
+                  <input required type="text"
+                    class="form-control" formControlName="apellido" name="" id="apellido" placeholder="Escribe tu apellido">
+                </div>
+  
+              <div class="mb-3">
+                <label for="">Correo: </label>
+                <input required type="email"
+                  class="form-control" formControlName="correo" name="" id="correo" aria-describedby="helpId" placeholder="Escribe tu correo">
+              </div>
+  
+              <div class="mb-3">
+                  <label for="">Contraseña: </label>
+                  <input type="password"
+                    class="form-control" formControlName="contrasena" name="" id="contrasena" aria-describedby="helpId" placeholder="Escribe tu contraseña">
+                </div>
+              
+              <div class="mb-3">
+                  <label for="">Teléfono:  </label>
+                  <input required type="number"
+                    class="form-control" formControlName="telefono" name="" id="telefono" aria-describedby="helpId" placeholder="Escribe tu teléfono">
+              </div>
+          
+              <div class="mb-3">
+                  <label for="">Dirección: </label>
+                  <input required type="text"
+                    class="form-control" formControlName="direccion" name="" id="direccion" aria-describedby="helpId" placeholder="Escribe tu dirección">
+              </div>
+  
+              <div class="mb-3">
+                  <label for="">Cédula: </label>
+                  <input required type="number"
+                    class="form-control" formControlName="cedula" name="" id="cedula" aria-describedby="helpId" placeholder="Escribe tu cédula">
+              </div>
+  
+              
+              <div class="mb-3">
+                <label for="">Foto:</label>
+                <input type = "file" accept="image/*" (change)="seleccionarArchivo($event)" formControlName = "foto" name = "" id = "foto">
+                <img *ngIf="imagenPrevisualizacion" src="data:image/png;base64,{{imagenPrevisualizacion}}">
+              </div>
+  
+  
+  
+            
+    
+  
+              <div class="btn-group botones" role="group" aria-label="">
+                  <button type="submit" class="btn btn-outline-primary">Agregar</button>  
+                  <button type="button" class="btn btn-outline-secondary" routerLink="/listar-usuario">Cancelar</button>
+              </div>
+          </form>
+      </div>
+      
+  </div>
+  
+  </div>

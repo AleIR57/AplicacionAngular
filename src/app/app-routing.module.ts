@@ -15,6 +15,9 @@ import { EditarOfertaComponent } from './componentes/editar-oferta/editar-oferta
 import { AgregarEnvioComponent } from './componentes/agregar-envio/agregar-envio.component';
 import { ListarEnvioComponent } from './componentes/listar-envio/listar-envio.component';
 import { EditarEnvioComponent } from './componentes/editar-envio/editar-envio.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'agregar-usuario'},
@@ -33,7 +36,10 @@ const routes: Routes = [
   {path: 'agregar-envio', component: AgregarEnvioComponent},
   {path: 'agregar-envio/:id', component: AgregarEnvioComponent},
   {path: 'listar-envio', component: ListarEnvioComponent},
-  {path: 'editar-envio/:id', component: EditarEnvioComponent}
+  {path: 'editar-envio/:id', component: EditarEnvioComponent},
+  {path: 'ingresar', component: LoginComponent},
+  {path: 'registrar', component: RegisterComponent},
+
 
 
 ];

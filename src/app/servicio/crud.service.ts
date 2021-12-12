@@ -10,6 +10,7 @@ import { Usuario, Categoria, Producto, Oferta, Envio, Rol } from './Usuario';
 export class CrudService {
 
   API: string='http://localhost/apisubastas/Usuario/index.php'
+  API1: string='http://localhost/apisubastas/Usuario/login.php'
   API2: string= 'http://localhost/apisubastas/Categoria/index.php'
   API3: string= 'http://localhost/apisubastas/Producto/index.php'
   API8: string= 'http://localhost/apisubastas/Producto/index2.php'
@@ -171,6 +172,14 @@ export class CrudService {
 
   EditarRol(idRol:any,datosRol:any):Observable<any>{
     return this.clienteHttp.post(this.API6+"?actualizar="+idRol,datosRol);
+  }
+
+  login(datosUsuario: any): Observable<any> {
+    return this.clienteHttp.post(this.API1+"?ingresar=", datosUsuario);
+  }
+
+  RegistrarUsuario(datosUsuario: any): Observable<any> {
+    return this.clienteHttp.post(this.API1+"?registrar=", datosUsuario);
   }
 
 
