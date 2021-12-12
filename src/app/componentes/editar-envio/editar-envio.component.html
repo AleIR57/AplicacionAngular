@@ -1,67 +1,71 @@
-<p>Sujeto mostrala ya mismo</p>
+
 <div class = "container">
 
 
-<div class="card">
-    <div class="card-header">
-        Editar envío
-    </div>
-    <div class="card-body">
-        <form ngNativeValidate [formGroup] = "formularioDeEnvios" (ngSubmit)="enviarDatos()"> 
-            <div class="mb-3">
-                <label for="">Oferta: </label>
-                <input required type="text"
-                  class="form-control" formControlName="idOferta" name="" id="idOferta"  placeholder="Escribe el nombre de la categoría">
-              </div>
+  <div class="card">
+      <div class="card-header">
+          Editar envío
+      </div>
+      <div class="card-body">
+          <form ngNativeValidate [formGroup] = "formularioDeEnvios" (ngSubmit)="enviarDatos()"> 
+                <div class="mb-3">
+                  <label for="">Código postal: </label>
+                  <input required type="text"
+                    class="form-control" formControlName="codigoPostal" name="" id="codigoPostal"  placeholder="Escribe el código postal">
+                </div>
               <div class="mb-3">
-                <label for="">Código postal: </label>
+                <label for="">Barrio: </label>
                 <input required type="text"
-                  class="form-control" formControlName="codigoPostal" name="" id="codigoPostal"  placeholder="Escribe el nombre de la categoría">
+                  class="form-control" formControlName="barrio" name="" id="barrio"  placeholder="Escribe el barrio">
               </div>
-            <div class="mb-3">
-              <label for="">Barrio: </label>
-              <input required type="text"
-                class="form-control" formControlName="barrio" name="" id="barrio"  placeholder="Escribe el nombre de la categoría">
-            </div>
-
-            <div class="mb-3">
-                <label for="">Ciudad: </label>
-                <input required type="text"
-                  class="form-control" formControlName="ciudad" name="" id="ciudad"  placeholder="Escribe el nombre de la categoría">
-              </div>
-
+  
               <div class="mb-3">
-                <label for="">Dirección: </label>
-                <input required type="text"
-                  class="form-control" formControlName="direccion" name="" id="direccion"  placeholder="Escribe el nombre de la categoría">
+                  <label for="">Ciudad: </label>
+                  <input required type="text"
+                    class="form-control" formControlName="ciudad" name="" id="ciudad"  placeholder="Escribe la ciudad">
+                </div>
+  
+                <div class="mb-3">
+                  <label for="">Dirección: </label>
+                  <input required type="text"
+                    class="form-control" formControlName="direccion" name="" id="direccion"  placeholder="Escribe la dirección">
+                </div>
+  
+                <div class="mb-3">
+                  <label for="">Referencia: </label>
+                    <textarea
+                    class="form-control" formControlName="referencia" name="" id="referencia"  placeholder="Escribe una referencia que pueda identificar el lugar de destino"></textarea>
+                </div>
+  
+                <div class="mb-3">
+                  <label for="">Marca tu lugar en el mapa: </label>
+                  <agm-map class = "mapa" [latitude] ="ubicacionCentral.latitud" [longitude]="ubicacionCentral.longitud" [zoom] = "zoom" (mapClick)="mapClicked($event)">
+                  <agm-marker [latitude] ="coordenadas.latitud" [longitude]="coordenadas.longitud">
+                    <agm-info-window>
+                      <div>
+                        <p>La latitud del punto marcado es: {{coordenadas?.latitud}}</p>
+                        <p>La longitud del punto marcado es: {{coordenadas?.longitud}}</p>
+                      </div>
+                    </agm-info-window>
+                  </agm-marker>
+              </agm-map></div>
+  
+                
+  
+            
+          
+  
+                <div class="btn-group" role="group" aria-label="">
+                  <button type="submit" class="btn btn-outline-primary">Modificar</button>
+                  <button type="button" class="btn btn-outline-secondary" routerLink="/listar-usuario">Cancelar</button>
               </div>
-
-              <div class="mb-3">
-                <label for="">Referencia: </label>
-                <input required type="text"
-                  class="form-control" formControlName="referencia" name="" id="referencia"  placeholder="Escribe el nombre de la categoría">
-              </div>
-
-              <div class="mb-3">
-                <label for="">Latitud: </label>
-                <input required type="text"
-                  class="form-control" formControlName="latitud" name="" id="latitud"  placeholder="Escribe el nombre de la categoría">
-              </div>
-
-              <div class="mb-3">
-                <label for="">Longitud: </label>
-                <input required type="text"
-                  class="form-control" formControlName="longitud" name="" id="longitud"  placeholder="Escribe el nombre de la categoría">
-              </div>
-        
-
-              <div class="btn-group" role="group" aria-label="">
-                <button type="submit" class="btn btn-success">Agregar</button>
-                <button type="button" class="btn btn-primary" routerLink="/listar-usuario">Cancelar</button>
-            </div>
-        </form>
-    </div>
-    
-</div>
-
-</div>
+          </form>
+      </div>
+      
+  </div>
+  
+  
+  
+  
+  </div>
+  

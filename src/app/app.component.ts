@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Página de subastas con angular';
+  center = {lat: 4.570868, lng: -74.297333};
+  zoom = 15;
+  display?: google.maps.LatLngLiteral;
 }

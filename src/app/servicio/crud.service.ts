@@ -12,6 +12,7 @@ export class CrudService {
   API: string='http://localhost/apisubastas/Usuario/index.php'
   API2: string= 'http://localhost/apisubastas/Categoria/index.php'
   API3: string= 'http://localhost/apisubastas/Producto/index.php'
+  API8: string= 'http://localhost/apisubastas/Producto/index2.php'
   API4: string= 'http://localhost/apisubastas/Oferta/index.php'
   API7: string= 'http://localhost/apisubastas/Oferta/index2.php'
   API5: string= 'http://localhost/apisubastas/Envio/index.php'
@@ -79,6 +80,10 @@ export class CrudService {
   ObtenerProducto(idProducto:any):Observable<any>{
     return this.clienteHttp.get(this.API3+"?consultar="+idProducto);
   }
+
+  ObtenerProductoDeUsuario(idProducto:any):Observable<any>{
+    return this.clienteHttp.get(this.API8+"?consultar5="+idProducto);
+  }
   
 
   EditarProducto(idProducto:any,datosProducto:any):Observable<any>{
@@ -107,8 +112,8 @@ export class CrudService {
     return this.clienteHttp.get(this.API7+"?consultar4="+idUsuario);
   }
 
-  ObtenerOfertasDeUsuarios(idUsuario:any, idProducto:any):Observable<any>{
-    return this.clienteHttp.get(this.API7+"?consultar3="+idUsuario,idProducto);
+  ObtenerOfertasDeUsuarios(idOferta:any):Observable<any>{
+    return this.clienteHttp.get(this.API7+"?consultar3="+idOferta);
   }
 
   BorrarOferta(idOferta:any):Observable<any>{

@@ -21,7 +21,8 @@ import { EditarOfertaComponent } from './componentes/editar-oferta/editar-oferta
 import { AgregarEnvioComponent } from './componentes/agregar-envio/agregar-envio.component';
 import { ListarEnvioComponent } from './componentes/listar-envio/listar-envio.component';
 import { EditarEnvioComponent } from './componentes/editar-envio/editar-envio.component'; 
-
+import { GoogleMapsModule } from '@angular/google-maps';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,9 @@ import { EditarEnvioComponent } from './componentes/editar-envio/editar-envio.co
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleMapsModule,
+    AgmCoreModule.forRoot({apiKey: "AIzaSyC9UNNY_GbIQ8V62cUfMjuGZ--nxqkhlbc"}),
   ],
   providers: [
     CrudService

@@ -17,8 +17,8 @@
                  <tr *ngFor="let envio of Envios; let iControl=index">
                      <td>{{ envio.idEnvio }}</td>
                      <td> {{ envio.barrio }} </td>
-                     <td> <a routerLink="/editar-envio/{{envio.idEnvio}}" class = "btn btn-info" role = "button">EDITAR </a>| 
-                        <a name = "" id = "" (click)="borrarRegistro(envio.idEnvio, iControl)" class = "btn btn-danger" role = "button">BORRAR</a></td>
+                     <td> <a routerLink="/editar-envio/{{envio.idEnvio}}" class = "btn btn-outline-warning" role = "button"><i class="fas fa-pencil-alt"></i></a> | 
+                        <a name = "" id = "" (click)="borrarRegistro(envio.idEnvio, iControl)" class = "btn btn-outline-danger" role = "button"><i class="fas fa-trash-alt"></i></a></td>
                  </tr>
                  
              </tbody>

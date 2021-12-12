@@ -12,13 +12,13 @@ import * as countdown from 'countdown';
   styleUrls: ['./editar-producto.component.css']
 })
 export class EditarProductoComponent implements OnInit {
-
+  
   elID: any;
   formularioDeOfertas: FormGroup;
   formularioDeProductos:FormGroup;
   Categorias:any;
   Ofertas:any;
-  Usuarios:any;
+  Usuarios: any[] = [];
   imagenPrevisualizacion:any;
   fechafinalizacion:any;
   desplegable = false;
@@ -35,6 +35,8 @@ export class EditarProductoComponent implements OnInit {
   x:any;
   demo:any;
   demoBoolean = true;
+  show = 0;
+  UsuarioProducto: any;
 
   constructor(
     private activateRoute:ActivatedRoute,
@@ -66,14 +68,22 @@ export class EditarProductoComponent implements OnInit {
       console.log(respuesta);
       this.Ofertas=respuesta;
       this.cantidadOfertas = respuesta.length;
-      /*for(let i = 0; i < respuesta.length; i++){
-        this.crudService.ObtenerOfertasDeUsuarios(respuesta[i]['idUsuario'], this.elID).subscribe(respuesta2 =>{
-          console.log("Estos son los usuarios: ", respuesta2);
-          this.Usuarios=respuesta2;
-          console.log(respuesta[i]['idUsuario']);
+      for(let i = 0; i < respuesta.length; i++){
+        this.crudService.ObtenerOfertasDeUsuarios(respuesta[i]['idOferta']).subscribe(respuesta2 =>{
+         
+          this.Usuarios.push(respuesta2);
         });
-      }*/
-     
+        
+      }
+      console.log("Estos son los usuarios: ", this.Usuarios);
+
+    });
+
+  
+
+    this.crudService.ObtenerProductoDeUsuario(this.elID).subscribe(respuesta =>{
+      console.log(respuesta);
+      this.UsuarioProducto = respuesta;
     });
 
     
