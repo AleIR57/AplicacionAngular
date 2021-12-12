@@ -1,3 +1,4 @@
+import { TokenInterceptorService } from './servicio/token-interceptor.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -7,7 +8,7 @@ import { AgregarUsuarioComponent } from './componentes/agregar-usuario/agregar-u
 import { EditarUsuarioComponent } from './componentes/editar-usuario/editar-usuario.component';
 import { ListarUsuarioComponent } from './componentes/listar-usuario/listar-usuario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AgregarCategoriaComponent } from './componentes/agregar-categoria/agregar-categoria.component';
 import { ListarCategoriaComponent } from './componentes/listar-categoria/listar-categoria.component';
 import { EditarCategoriaComponent } from './componentes/editar-categoria/editar-categoria.component';
@@ -25,7 +26,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { AgmCoreModule } from '@agm/core';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt'
 
 @NgModule({
   declarations: [
@@ -59,7 +60,10 @@ import { RegisterComponent } from './register/register.component';
     AgmCoreModule.forRoot({apiKey: "AIzaSyC9UNNY_GbIQ8V62cUfMjuGZ--nxqkhlbc"}),
   ],
   providers: [
-    CrudService
+    CrudService,
+    {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
+    JwtHelperService,
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]
 })

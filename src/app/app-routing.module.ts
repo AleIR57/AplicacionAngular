@@ -1,3 +1,4 @@
+import { RoleGuard } from './guards/role.guard';
 import { AgregarOfertaComponent } from './componentes/agregar-oferta/agregar-oferta.component';
 import { AgregarCategoriaComponent } from './componentes/agregar-categoria/agregar-categoria.component';
 import { ListarUsuarioComponent } from './componentes/listar-usuario/listar-usuario.component';
@@ -17,15 +18,16 @@ import { ListarEnvioComponent } from './componentes/listar-envio/listar-envio.co
 import { EditarEnvioComponent } from './componentes/editar-envio/editar-envio.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'agregar-usuario'},
   {path: 'agregar-usuario', component:AgregarUsuarioComponent},
-  {path: 'listar-usuario', component: ListarUsuarioComponent},
+  {path: 'listar-usuario', component: ListarUsuarioComponent, canActivate: [AuthGuard]},
   {path: 'editar-usuario/:id', component: EditarUsuarioComponent},
   {path: 'agregar-categoria', component: AgregarCategoriaComponent},
-  {path: 'listar-categoria', component: ListarCategoriaComponent},
+  {path: 'listar-categoria', component: ListarCategoriaComponent, canActivate: [RoleGuard], data: { expectedRole: 2}},
   {path: 'editar-categoria/:id', component: EditarCategoriaComponent},
   {path: 'agregar-producto', component: AgregarProductoComponent},
   {path: 'listar-producto', component: ListarProductoComponent},
