@@ -29,6 +29,7 @@ import { RegisterComponent } from './register/register.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { InicioComponent } from './componentes/inicio/inicio.component';
+import { DetalleProductoComponent } from './componentes/detalle-producto/detalle-producto.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
     LoginComponent,
     RegisterComponent,
     InicioComponent,
+    DetalleProductoComponent,
  
   ],
   imports: [

@@ -1,0 +1,94 @@
+<div class = "card-wrapper">
+    <div class = "cardProducto">
+      <!-- card left -->
+      <div class = "product-imgs">
+        <div class = "img-display">
+          <div class = "img-showcase">
+            <img src="data:image/png;base64,{{imagenPrevisualizacion}}" alt = "shoe image">
+            <img src="data:image/png;base64,{{imagenPrevisualizacion}}" alt = "shoe image">
+            <img src="data:image/png;base64,{{imagenPrevisualizacion}}" alt = "shoe image">
+            <img src="data:image/png;base64,{{imagenPrevisualizacion}}" alt = "shoe image">
+          </div>
+        </div>
+        <div class = "img-select">
+          <div class = "img-item">
+            <a href = "#" data-id = "1">
+                <img src="data:image/png;base64,{{imagenPrevisualizacion}}" alt = "shoe image">
+              
+            </a>
+          </div>
+          <div class = "img-item">
+            <a href = "#" data-id = "2">
+                <img src="data:image/png;base64,{{imagenPrevisualizacion}}" alt = "shoe image">
+            </a>
+          </div>
+          <div class = "img-item">
+            <a href = "#" data-id = "3">
+              <img src="data:image/png;base64,{{imagenPrevisualizacion}}" alt = "shoe image">
+            </a>
+          </div>
+          <div class = "img-item">
+            <a href = "#" data-id = "4">
+              <img src="data:image/png;base64,{{imagenPrevisualizacion}}"alt = "shoe image">
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- card right -->
+      <div class = "product-content">
+          
+        <h2 class = "product-title">{{nombre}}</h2>
+        <div class = "info-propietario" *ngFor="let usuarioProducto of UsuarioProducto">
+            <h4 class = "titulo-info">Propietari@:</h4>
+            <p>{{usuarioProducto.nombre}} {{usuarioProducto.apellido}}</p>
+            <img class = "imagen-perfil" src="data:image/png;base64,{{usuarioProducto.foto}}" alt="Avatar">
+            
+        </div>
+        <div class = "product-price">
+          <p class = "last-price">Precio base: <span>${{precioBase}}</span></p>
+          <p class = "new-price">Precio actual: <span>${{precioActual}}</span></p>
+        </div>
+
+        <div class = "product-detail">
+          <h2>Sobre este producto: </h2>
+          <p>{{descripcion}}</p>
+          
+          <ul>
+            <li>Marca: <span>{{marca}}</span></li>
+            <li>Modelo: <span>{{modelo}}</span></li>
+            <li>Fecha de inicio: <span>{{fechainicio}}</span></li>
+            <li>Fecha de finalización: <span>{{fechafinalizacion}}</span></li>
+          </ul>
+        </div>
+
+        <div class = "purchase-info">
+          <button type = "button" class = "btn">
+            {{demo}}
+          </button>
+
+        </div>
+
+        <div class = "social-links">
+          <p>Compartir en: </p>
+          <a href = "#">
+            <i class = "fab fa-facebook-f"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-twitter"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-instagram"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-whatsapp"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-pinterest"></i>
+          </a>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>

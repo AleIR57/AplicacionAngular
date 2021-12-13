@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { InicioComponent } from './componentes/inicio/inicio.component';
+import { DetalleProductoComponent } from './componentes/detalle-producto/detalle-producto.component';
 
 
 const routes: Routes = [
@@ -42,7 +43,8 @@ const routes: Routes = [
   {path: 'editar-envio/:id', component: EditarEnvioComponent},
   {path: 'ingresar', component: LoginComponent},
   {path: 'registrar', component: RegisterComponent},
-  {path: 'inicio', component: InicioComponent}
+  {path: 'inicio', component: InicioComponent},
+  {path: 'detalle-producto/:id', component:DetalleProductoComponent},
 
 
 
