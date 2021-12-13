@@ -4,8 +4,13 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
+ *{
+    font-family: 'Readex Pro', sans-serif;
+ }
+
  body {
     overflow-x: hidden;
+   
  }
 
 /* Toggle Styles */
@@ -112,6 +117,145 @@
 .logout:hover{
     cursor: pointer;
 }
+
+
+.encabezado img{
+    padding-top: 10%;
+    height: 5em;
+    width: 5em;
+}
+
+.encabezado .parte-superior{
+    margin: 1%;
+    display: flex;
+
+    justify-content: space-between;
+}
+
+
+.encabezado .parte-superior ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+  
+.encabezado .parte-superior  li {
+    float: left;
+  }
+  
+  .encabezado .parte-superior li a {
+   
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 1em;
+    text-decoration: none;
+   
+  }
+  
+  .encabezado .parte-superior li a:hover {
+    color:lightgray;
+  }
+
+.boton-inicio{
+ 
+}
+
+.boton-registro{
+ background-color: lightgreen;
+ border-radius: 0.9em;
+ padding-left: 0.8em;
+ padding-right: 0.8em;
+}
+
+.encabezado .parte-inferior{
+   
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.encabezado .parte-inferior ul {
+    margin-top: 1%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-left: 3%;
+    margin-right: 3%;
+    
+  }
+  
+.encabezado .parte-inferior  li {
+    float: left;
+  }
+  
+  .encabezado .parte-inferior li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 1em;
+    text-decoration: none;
+   
+  }
+
+  .encabezado .parte-inferior li input{
+ 
+      width: 55em;
+  }
+  
+  .encabezado .parte-inferior li a:hover {
+    color:lightgray;
+  }
+
+.boton-categorias{
+    border-radius: 2em;
+    margin-top: 1%;
+   
+
+    -webkit-box-shadow: 0 0 2px lightgray;
+    
+}
+
+.boton-categorias a{
+   
+}
+.circle:before {
+    content: ' \25CF';
+    font-size: 200px;
+  }
+
+.buscador{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    border-style: none;
+    border: 1px solid lightgray;
+    border-radius: 50px;
+}
+
+.buscador:hover{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    border-style: none;
+    border: 1px solid lightgray;
+    border-radius: 50px;
+}
+
+.boton-carrito-ofertas{
+    text-align: center;
+    margin-top: 1%;
+    margin-left: 1%;
+    -webkit-box-shadow: 0 0 2px lightgray;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
 
 
 

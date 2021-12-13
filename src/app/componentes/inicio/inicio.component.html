@@ -1,0 +1,83 @@
+
+<div class = "contenedor">
+
+
+<div class="container-all">
+    <input type = "radio" id = "1" name = "image-slide" hidden/>
+    <input type = "radio" id = "2" name = "image-slide" hidden/>
+    <input type = "radio" id = "3" name = "image-slide" hidden/>
+
+    <div class="slide">
+        <div class="item-slide">
+            <img src = "../../../assets/1.jpg">
+        </div>
+        <div class="item-slide">
+            <img src = "../../../assets/2.jpg">
+        </div>
+        <div class="item-slide">
+            <img src = "../../../assets/3.jpg">
+        </div>
+    </div>
+
+    <div class="pagination">
+        <label  class="pagination-item" for="1">
+            <img src = "../../../assets/1.jpg">
+        </label>
+        <label class="pagination-item"  for="2">
+            <img src = "../../../assets/2.jpg">
+        </label>
+        <label  class="pagination-item" for="3">
+            <img src = "../../../assets/3.jpg">
+        </label>
+    </div>
+</div>
+</div>
+
+<div class = "categorias">
+    
+    <h1>Categorías</h1>
+    <div class="horizontal_slider">
+        
+        <div class="slider_container">
+            <div class="item" *ngFor="let categoria of Categorias; let iControl=index">
+                <img src="data:image/png;base64,{{categoria.imagen}}">
+            </div>
+        </div>
+    </div>
+    </div>
+
+<div class = "productos">
+    
+    <div class = "contenedorProductos">
+       
+    <div class="cardProductos" *ngFor="let producto of Productos; let iControl=index">
+        <div class="imgBx">
+            <img src="data:image/png;base64,{{producto.foto}}">
+        </div>
+            <div class="content">
+                <div class="productName">
+                    <h3>{{producto.nombre}}</h3>
+                </div>
+                <div class="price_rating">
+                    <h2><span>Última oferta: </span>$ {{producto.precioActual}}</h2>
+                </div>
+             
+            </div>
+       
+    </div>
+
+    
+</div>
+</div>
+
+
+<div class = "informacionSubastas">
+    <div class = "imagenSubastas">
+        <img src ="../../../assets/subastas.jpg">
+    </div>
+    <div class = "infoSubastas">
+        <h4>¿Cómo funcionan las subastas en la plataforma?</h4>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque deserunt odio soluta error aut quaerat maiores quia sit vitae delectus corrupti, illum assumenda adipisci voluptate quas saepe at cum quo.</p>
+        <a>Conocer más</a>
+    </div>
+</div>

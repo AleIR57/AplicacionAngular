@@ -19,10 +19,11 @@ import { EditarEnvioComponent } from './componentes/editar-envio/editar-envio.co
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './guards/auth.guard';
+import { InicioComponent } from './componentes/inicio/inicio.component';
 
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'agregar-usuario'},
+  {path: '', pathMatch: 'full', redirectTo: 'inicio'},
   {path: 'agregar-usuario', component:AgregarUsuarioComponent},
   {path: 'listar-usuario', component: ListarUsuarioComponent, canActivate: [AuthGuard]},
   {path: 'editar-usuario/:id', component: EditarUsuarioComponent},
@@ -41,6 +42,7 @@ const routes: Routes = [
   {path: 'editar-envio/:id', component: EditarEnvioComponent},
   {path: 'ingresar', component: LoginComponent},
   {path: 'registrar', component: RegisterComponent},
+  {path: 'inicio', component: InicioComponent}
 
 
 

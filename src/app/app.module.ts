@@ -1,7 +1,7 @@
 import { TokenInterceptorService } from './servicio/token-interceptor.service';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AgregarUsuarioComponent } from './componentes/agregar-usuario/agregar-usuario.component';
@@ -26,7 +26,10 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { AgmCoreModule } from '@agm/core';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt'
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { InicioComponent } from './componentes/inicio/inicio.component';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +51,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt'
     EditarEnvioComponent,
     LoginComponent,
     RegisterComponent,
+    InicioComponent,
  
   ],
   imports: [
@@ -58,6 +62,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt'
     HttpClientModule,
     GoogleMapsModule,
     AgmCoreModule.forRoot({apiKey: "AIzaSyC9UNNY_GbIQ8V62cUfMjuGZ--nxqkhlbc"}),
+    BrowserAnimationsModule,
   ],
   providers: [
     CrudService,
@@ -65,6 +70,9 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt'
     JwtHelperService,
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class AppModule { }
