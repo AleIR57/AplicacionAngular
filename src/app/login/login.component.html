@@ -32,17 +32,17 @@
       <form>
         <div class="inputBx">
           <span>Correo</span>
-          <input type = "email" name = "">
+          <input type = "email" name = "email" [(ngModel)]="email"  required="required"  placeholder="Digite su correo">
         </div>
         <div class="inputBx">
           <span>Contraseña</span>
-          <input type = "contrasena" name = "">
+          <input type = "password"  name = "password"  [(ngModel)]="password"   required="required" placeholder="Digite su contraseña">
         </div>
         <div class="remember">
           <label><input type="checkbox" name = "">Recordarme</label>
         </div>
         <div class="inputBx">
-          <input type = "submit" value = "Ingresar" name = "">
+          <input type = "submit" (click)="login()" value = "Ingresar" name = "">
         </div>
         <div class="inputBx">
          <p>¿No tienes una cuenta todavía?<a href ="#">¡Regístrate!</a></p>

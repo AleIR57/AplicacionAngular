@@ -3,3 +3,57 @@ img{
     height: 8em;
     filter:brightness(0.7);
 }
+
+
+@media screen and (max-width:1200px){
+    .columna-correo{
+        display: none;
+    }
+
+    img{
+        width: 5em;
+        height: 3em;
+        filter:brightness(0.7);
+    }
+
+    
+}
+
+@media screen and (max-width: 830px){
+    .columna-codigo{
+        display: none;
+    }
+
+   
+    
+}
+
+@media screen and (max-width: 600px){
+   
+ 
+    .columna-telefono{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px){
+   
+
+    .columna-imagen{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px){
+    a{
+        width: 2.5em;
+        
+        display: block;
+    }
+
+    i{
+        padding-right: 5em;
+    }
+
+    
+}

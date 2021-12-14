@@ -2,6 +2,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { CrudService } from './../../servicio/crud.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import {interval, timer} from 'rxjs';
 
 @Component({
   selector: 'app-detalle-producto',
@@ -38,7 +39,8 @@ export class DetalleProductoComponent implements OnInit {
     private crudService:CrudService,
     public formulario:FormBuilder,
     private ruteador: Router) {
-
+      const contador = interval(1000);
+    contador.subscribe(() =>{
       this.elID=this.activateRoute.snapshot.paramMap.get('id');
       this.crudService.ObtenerProducto(this.elID).subscribe(respuesta =>{
         this.fechainicio = respuesta[0]['fechainicio'];
@@ -75,6 +77,10 @@ export class DetalleProductoComponent implements OnInit {
         console.log(respuesta);
         this.UsuarioProducto = respuesta;
       });
+    });
+     
+
+    
       
      }
 

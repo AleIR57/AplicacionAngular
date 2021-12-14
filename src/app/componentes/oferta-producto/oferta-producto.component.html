@@ -1,85 +1,5 @@
 
-<div class = "container">
-
-
-  <div class="card">
-      <div class="card-header titulo-tarjeta">
-          Editar producto
-          <div (click)="desplegable=!desplegable">
-          <i class="fas fa-caret-down" *ngIf="!desplegable"></i>
-          <i class="fas fa-caret-up" *ngIf="desplegable"></i>
-        </div>
-        
-
-      </div>
-      <div class="card-body" *ngIf="desplegable">
-          <form ngNativeValidate [formGroup] = "formularioDeProductos" (ngSubmit)="enviarDatos()"> 
-              <div class="mb-3">
-                <label for="">Nombre: </label>
-                <input required type="text"
-                  class="form-control" formControlName="nombre" name="" id="nombre"  placeholder="Escribe el nombre del producto">
-              </div>
-  
-              <div class="mb-3">
-                  <label for="">Marca: </label>
-                  <input required type="text"
-                    class="form-control" formControlName="marca" name="" id="marca" placeholder="Escribe la marca del producto">
-                </div>
-  
-              <div class="mb-3">
-                <label for="">Modelo: </label>
-                <input required type="text"
-                  class="form-control" formControlName="modelo" name="" id="modelo" aria-describedby="helpId" placeholder="Escribe el modelo del producto">
-              </div>
-  
-              <div class="mb-3">
-                  <label for="">Descripción: </label>
-                  <input type="text"
-                    class="form-control" formControlName="descripcion" name="" id="descripcion" aria-describedby="helpId" placeholder="Haz una descripción sobre el producto">
-                </div>
-              
-              <div class="mb-3">
-                <label for="">Categoría:</label>
-                <select class="form-select" aria-label="Default select example" formControlName = "idCategoria" >
-                  <option selected>Selecciona una categoría</option>
-                  <option *ngFor="let categoria of Categorias; let iControl=index" value="{{categoria.idCategoria}}">{{categoria.nombre}}</option>
-                </select>
-              </div>
-  
-              <div class="mb-3">
-                <label for="">Precio base: </label>
-                <input required type="number"
-                  class="form-control" formControlName="precioBase" name="" id="precioBase" aria-describedby="helpId" placeholder="Define el precio base por el cual los usuarios van a empezar a ofertar">
-            </div>
-            
-          
-              <div class="mb-3">
-                  <label for="">Fecha y hora de finalización: </label>
-                  <input required id="fechafinalizacion" type="datetime-local" value="{{fechafinalizacion}}" formControlName = "fechafinalizacion">
-              </div>
-  
-  
-              <div class="mb-3">
-                <label for="">Foto:</label>
-                <label class = "custom-file-upload">Cargar foto<input type = "file" accept="image/*" (change)="seleccionarArchivo($event)" formControlName = "foto" name = "" id = "foto"></label>
-                <img *ngIf="imagenPrevisualizacion" src="data:image/png;base64,{{imagenPrevisualizacion}}">
-              </div>
-  
-            
-    
-  
-              <div class="btn-group" role="group" aria-label="">
-                  <button type="submit" class="btn btn-outline-primary">Agregar</button>
-                  <button type="button" class="btn btn-outline-secondary" routerLink="/listar-usuario">Cancelar</button>
-                
-              </div>
-          </form>
-      </div>
-      
-  </div>
-
-
-  <div class = "card-wrapper">
+<div class = "card-wrapper">
     <div class = "cardProducto">
       <!-- card left -->
       <div class = "product-imgs">
@@ -197,5 +117,5 @@
       </tbody>
     </table>
   </div>
-  
-  </div>
+
+  <script src="script.js"></script>

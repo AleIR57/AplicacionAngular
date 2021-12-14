@@ -5,7 +5,7 @@
  */
 
  *{
-    font-family: 'Readex Pro', sans-serif;
+  
  }
 
  body {
@@ -128,7 +128,7 @@
 .encabezado .parte-superior{
     margin: 1%;
     display: flex;
-
+    font-family: 'Readex Pro', sans-serif;
     justify-content: space-between;
 }
 
@@ -161,15 +161,25 @@
   }
 
 .boton-inicio{
- 
+    cursor: pointer;
 }
 
 .boton-registro{
  background-color: lightgreen;
  border-radius: 0.9em;
  padding-left: 0.8em;
- padding-right: 0.8em;
- color: white;
+ padding-right: 0.8em; 
+ cursor: pointer;
+ 
+}
+
+.boton-registro .titulo-boton-inicio{
+    color: white;
+   
+}
+
+.boton-registro .titulo-boton-inicio:hover{
+    color: white;
 }
 
 .encabezado .parte-inferior{
@@ -215,14 +225,12 @@
 .boton-categorias{
     border-radius: 2em;
     margin-top: 1%;
-   
-
     -webkit-box-shadow: 0 0 2px lightgray;
     
 }
 
 .boton-categorias a{
-   
+   margin-left: 1%;
 }
 .circle:before {
     content: ' \25CF';
@@ -250,14 +258,16 @@
 .boton-carrito-ofertas{
     text-align: center;
     margin-top: 1%;
-    margin-left: 1%;
+    margin-left: 2%;
     -webkit-box-shadow: 0 0 2px lightgray;
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
 
-
+.logout{
+    cursor: pointer;
+}
 
 
 @media(min-width:768px) {
@@ -290,9 +300,12 @@
     
 }
 
+
+
 @media screen and(max-width: 768px){
     .navbar-medidas{
         position:  relative;
         
     }
+  
 }

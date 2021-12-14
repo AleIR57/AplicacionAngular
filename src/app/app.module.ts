@@ -30,6 +30,10 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { DetalleProductoComponent } from './componentes/detalle-producto/detalle-producto.component';
+import { ProductosDeUsuarioComponent } from './componentes/productos-de-usuario/productos-de-usuario.component';
+import { TodosLosProductosComponent } from './componentes/todos-los-productos/todos-los-productos.component';
+import { OfertaProductoComponent } from './componentes/oferta-producto/oferta-producto.component';
+import { MisEnviosComponent } from './componentes/mis-envios/mis-envios.component';
 
 
 @NgModule({
@@ -54,6 +58,10 @@ import { DetalleProductoComponent } from './componentes/detalle-producto/detalle
     RegisterComponent,
     InicioComponent,
     DetalleProductoComponent,
+    ProductosDeUsuarioComponent,
+    TodosLosProductosComponent,
+    OfertaProductoComponent,
+    MisEnviosComponent,
  
   ],
   imports: [

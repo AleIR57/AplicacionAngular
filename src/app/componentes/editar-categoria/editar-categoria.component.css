@@ -6,7 +6,18 @@ label{
     display:block;
 }
 
+input[type="file"] {
+    display: none;
+}
 
+.custom-file-upload {
+    background-color: white;
+    border: 1px solid lightgray;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
 img{
     padding-top: 1%;

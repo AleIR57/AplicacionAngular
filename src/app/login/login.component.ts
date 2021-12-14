@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       this.authService.singin(Usuario).subscribe( (res:any) =>{
         console.log(res);
         localStorage.setItem('token', res.token);
-        this.router.navigate(['/listar-usuario']);
+        this.router.navigate(['/todos-los-productos']);
       })
     console.log(this.email);
     console.log(this.password);

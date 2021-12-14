@@ -1,5 +1,5 @@
 
-<div class = "container">
+<div class = "container listarCategoria">
 
     <div class="card">
         <div class="card-header">
@@ -9,16 +9,16 @@
          <table class="table">
              <thead>
                  <tr>
-                     <th>IMAGEN</th>
-                     <th>CÓDIGO</th>
+                     <th class = "columna-imagen">IMAGEN</th>
+                     <th class = "columna-codigo">CÓDIGO</th>
                      <th>NOMBRE</th>
                      <th>ACCIONES</th>
                  </tr>
              </thead>
              <tbody>
                  <tr *ngFor="let categoria of Categorias; let iControl=index">
-                    <td><img src="data:image/png;base64,{{categoria.imagen}}"></td>
-                     <td>{{ categoria.idCategoria }}</td>
+                    <td class = "columna-imagen"><img src="data:image/png;base64,{{categoria.imagen}}"></td>
+                     <td class = "columna-codigo">{{ categoria.idCategoria }}</td>
                      <td> {{categoria.nombre }} </td>
                      <td> <a routerLink="/editar-categoria/{{categoria.idCategoria}}" class = "btn btn-outline-warning" role = "button"><i class="fas fa-pencil-alt"></i> </a> | 
                         <a name = "" id = "" (click)="borrarRegistro(categoria.idCategoria, iControl)" class = "btn btn-outline-danger" role = "button"><i class="fas fa-trash-alt"></i></a></td>

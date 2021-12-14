@@ -1,0 +1,36 @@
+<div class = "categorias">
+    
+    <h1>Categorías</h1>
+    <div class="horizontal_slider">
+        
+        <div class="slider_container">
+            <div class="item" *ngFor="let categoria of Categorias; let iControl=index">
+                <img src="data:image/png;base64,{{categoria.imagen}}">
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class = "productos">
+    
+        <div class = "contenedorProductos">
+           
+        <div class="cardProductos" *ngFor="let producto of Productos; let iControl=index" routerLink="/oferta-producto/{{producto.idProducto}}">
+            <div class="imgBx">
+                <img src="data:image/png;base64,{{producto.foto}}">
+            </div>
+                <div class="content">
+                    <div class="productName">
+                        <h3>{{producto.nombre}}</h3>
+                    </div>
+                    <div class="price_rating">
+                        <h2><span>Última oferta: </span>$ {{producto.precioActual}}</h2>
+                    </div>
+                 
+                </div>
+           
+        </div>
+    
+        
+    </div>
+    </div>

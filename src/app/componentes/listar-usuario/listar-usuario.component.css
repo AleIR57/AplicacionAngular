@@ -2,3 +2,47 @@ img{
     width: 10em;
     height: 8em;
 }
+
+@media screen and (max-width:1200px){
+    .columna-correo{
+        display: none;
+    }
+
+    img{
+        width: 5em;
+        height: 3em;
+    }
+
+    
+}
+
+@media screen and (max-width: 830px){
+    .columna-codigo{
+        display: none;
+    }
+
+   
+    
+}
+
+@media screen and (max-width: 600px){
+   
+ 
+    .columna-telefono{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px){
+   
+
+    .columna-imagen{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 300px){
+    a{
+        display: block;
+    }
+}

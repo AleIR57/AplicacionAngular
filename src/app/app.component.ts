@@ -27,6 +27,7 @@ export class AppComponent implements OnInit{
     var accessTokenObj = localStorage.getItem('token');
     if(accessTokenObj){
       console.log(accessTokenObj);
+      window.location.reload();
       localStorage.removeItem('token');
       this.login = false;
       window.location.reload();

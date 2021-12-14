@@ -1,17 +1,13 @@
-import { CrudService } from 'src/app/servicio/crud.service';
-
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {interval, timer} from 'rxjs';
-
-
+import { CrudService } from 'src/app/servicio/crud.service';
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.css']
-
-
+  selector: 'app-todos-los-productos',
+  templateUrl: './todos-los-productos.component.html',
+  styleUrls: ['./todos-los-productos.component.css']
 })
-export class InicioComponent implements OnInit {
+export class TodosLosProductosComponent implements OnInit {
+
   Productos:any;
   Categorias:any;
 
@@ -30,5 +26,6 @@ export class InicioComponent implements OnInit {
       this.Categorias=respuesta;
     });
   }
+
 
 }

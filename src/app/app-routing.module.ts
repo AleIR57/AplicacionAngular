@@ -1,3 +1,4 @@
+
 import { RoleGuard } from './guards/role.guard';
 import { AgregarOfertaComponent } from './componentes/agregar-oferta/agregar-oferta.component';
 import { AgregarCategoriaComponent } from './componentes/agregar-categoria/agregar-categoria.component';
@@ -21,6 +22,10 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { DetalleProductoComponent } from './componentes/detalle-producto/detalle-producto.component';
+import { TodosLosProductosComponent } from './componentes/todos-los-productos/todos-los-productos.component';
+import { ProductosDeUsuarioComponent } from './componentes/productos-de-usuario/productos-de-usuario.component';
+import { OfertaProductoComponent } from './componentes/oferta-producto/oferta-producto.component';
+import { MisEnviosComponent } from './componentes/mis-envios/mis-envios.component';
 
 
 const routes: Routes = [
@@ -45,6 +50,10 @@ const routes: Routes = [
   {path: 'registrar', component: RegisterComponent},
   {path: 'inicio', component: InicioComponent},
   {path: 'detalle-producto/:id', component:DetalleProductoComponent},
+  {path: 'todos-los-productos', component: TodosLosProductosComponent},
+  {path: 'productos-de-usuario', component: ProductosDeUsuarioComponent},
+  {path: 'oferta-producto/:id', component: OfertaProductoComponent},
+  {path: 'mis-envios', component: MisEnviosComponent}
 
 
 

@@ -5,39 +5,43 @@
         <div class="card-header">
             Productos por categoría <a routerLink="/agregar-producto/" class = "btn btn-info" role = "button"><i class="fas fa-plus"></i> </a>
         </div>
-        <h4>Categorías</h4>
-        <div class="card-body horizontal2 tarjeta-categorias">
-        <div class="row" *ngFor="let categoria of Categorias; let iControl=index">
-        <div class="objeto" style="width: 15rem;">
-            <div class="col-md12 p-12 ">
-            <img src="data:image/png;base64,{{categoria.imagen}}" alt="{{categoria.nombre}}" class = "img-categoria">
-            <p class = "p-categoria">{{categoria.nombre}}</p>
-           
-          </div>
-        </div>
         
-    </div>
-    </div>
-        <h4>Productos</h4>
-        <div class="card-body horizontal">
-            
-            <div class="row" *ngFor="let producto of Productos; let iControl=index">
-                <div class="col-md12 p-12">
-                    <div class="card tarjeta" style="width: 18rem;" routerLink="/editar-producto/{{producto.idProducto}}">
-                        <img class="card-img-top" src="data:image/png;base64,{{producto.foto}}" alt="Card image cap">
-                        <div class = "botones">
-                        <a href="#" class="btn btn-light botonPrecio">{{producto.fechafinalizacion}}</a>
-                        <a href="#" class="btn btn-info botonTiempo">$ {{producto.precioActual}}</a>
+        <div class = "categorias">
+    
+            <h1>Categorías</h1>
+            <div class="horizontal_slider">
+                
+                <div class="slider_container">
+                    <div class="item" *ngFor="let categoria of Categorias; let iControl=index">
+                        <img src="data:image/png;base64,{{categoria.imagen}}">
                     </div>
-                        <div class="card-body">
-                          <h5 class="card-title">{{producto.nombre}}</h5>
-                          <p class="card-text">{{producto.marca}}</p>
-                        </div>
-                      </div>
                 </div>
             </div>
+            </div>
+        
+            <div class = "productos">
             
-    
+                <div class = "contenedorProductos">
+                   
+                <div class="cardProductos" *ngFor="let producto of Productos; let iControl=index" routerLink="/editar-producto/{{producto.idProducto}}">
+                    <div class="imgBx">
+                        <img src="data:image/png;base64,{{producto.foto}}">
+                    </div>
+                        <div class="content">
+                            <div class="productName">
+                                <h3>{{producto.nombre}}</h3>
+                            </div>
+                            <div class="price_rating">
+                                <h2><span>Última oferta: </span>$ {{producto.precioActual}}</h2>
+                            </div>
+                         
+                        </div>
+                   
+                </div>
+            
+                
+            </div>
+
        
         </div>
       </div>

@@ -39,6 +39,7 @@ export class EditarProductoComponent implements OnInit {
   demoBoolean = true;
   show = 0;
   UsuarioProducto: any;
+  UsuarioMaximaOferta =  false;
 
   constructor(
     private activateRoute:ActivatedRoute,

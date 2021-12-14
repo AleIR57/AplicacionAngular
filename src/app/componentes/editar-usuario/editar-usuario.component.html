@@ -53,7 +53,7 @@
               
               <div class="mb-3">
                 <label for="">Foto:</label>
-                <input required type = "file" accept="image/*" (change)="seleccionarArchivo($event)" formControlName = "foto" name = "" id = "foto">
+                <label class = "custom-file-upload">Cargar foto<input type = "file" accept="image/*" (change)="seleccionarArchivo($event)" formControlName = "foto" name = "" id = "foto"></label>
                 <img *ngIf="imagenPrevisualizacion" src="data:image/png;base64,{{imagenPrevisualizacion}}">
               </div>
   
