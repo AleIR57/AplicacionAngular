@@ -110,6 +110,7 @@ export class OfertaProductoComponent implements OnInit {
       this.crudService.ObtenerOfertasDeProducto(this.elID).subscribe(respuesta =>{
         console.log(respuesta);
         this.Ofertas=respuesta;
+        
         if(this.Ofertas[0]['idUsuario'] == this.Usuario2['idUsuario']){
           this.UsuarioMaximaOferta = true;
         }
@@ -137,7 +138,10 @@ export class OfertaProductoComponent implements OnInit {
   agregarOferta():any{
     console.log("Sujeto");
     console.log(this.formularioDeOfertas.value);
-    if(this.formularioDeOfertas.value['precio'] > this.Ofertas[0]['precio']){
+    console.log(this.Usuario2['idUsuario']);
+    this.formularioDeOfertas.value['idUsuario'] = this.Usuario2['idUsuario'];
+   
+    if(this.formularioDeOfertas.value['precio'] > this.Ofertas[0]['precio'] || this.Ofertas[0]['precio'] == undefined){
 
     
     this.crudService.AgregarOferta(this.formularioDeOfertas.value).subscribe(respuesta =>{

@@ -55,7 +55,7 @@ const routes: Routes = [
   {path: 'productos-de-usuario', component: ProductosDeUsuarioComponent},
   {path: 'oferta-producto/:id', component: OfertaProductoComponent},
   {path: 'mis-envios', component: MisEnviosComponent},
-  {path: 'agregar-pago', component: AgregarPagoComponent}
+  {path: 'agregar-pago/:id', component: AgregarPagoComponent}
 
 
 

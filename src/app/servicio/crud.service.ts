@@ -122,6 +122,7 @@ export class CrudService {
     return this.clienteHttp.get(this.API7+"?consultar3="+idOferta);
   }
 
+
   ObtenerProductoDeOferta(idOferta:any):Observable<any>{
     return this.clienteHttp.get(this.API7+"?consultar5="+idOferta);
   }
@@ -155,9 +156,15 @@ export class CrudService {
     return this.clienteHttp.get(this.API5+"?consultar="+idEnvio);
   }
 
+  ObtenerEnvio2(idOferta:any):Observable<any>{
+    return this.clienteHttp.get(this.API9+"?consultar4="+idOferta);
+  }
+
   ObtenerEnviosDeUsuario(idUsuario:any):Observable<any>{
     return this.clienteHttp.get(this.API9+"?consultar2="+idUsuario);
   }
+
+
 
   EditarEnvio(idEnvio:any,datosEnvio:any):Observable<any>{
     return this.clienteHttp.post(this.API5+"?actualizar="+idEnvio,datosEnvio);
@@ -190,6 +197,8 @@ export class CrudService {
   RegistrarUsuario(datosUsuario: any): Observable<any> {
     return this.clienteHttp.post(this.API1+"?registrar=", datosUsuario);
   }
+
+
 
 
 

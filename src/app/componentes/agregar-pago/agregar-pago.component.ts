@@ -1,3 +1,6 @@
+import { FormBuilder } from '@angular/forms';
+import { CrudService } from 'src/app/servicio/crud.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
@@ -6,8 +9,28 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./agregar-pago.component.css']
 })
 export class AgregarPagoComponent implements OnInit {
+  elID: any;
+  Envio: any;
+  Oferta: any;
+  Producto: any;
+  constructor(private activateRoute:ActivatedRoute,
+    private crudService:CrudService,
+    public formulario:FormBuilder,
+    private ruteador: Router) { 
+    this.elID=this.activateRoute.snapshot.paramMap.get('id');
 
-  constructor() { }
+    this.crudService.ObtenerEnvio(this.elID).subscribe(respuesta => {
+      this.Envio = respuesta;
+      this.crudService.ObtenerOferta(respuesta[0]['idOferta']).subscribe(respuesta2 =>{
+        this.Oferta = respuesta2;
+        this.crudService.ObtenerProducto(respuesta2[0]['idProducto']).subscribe(respuesta3 =>{
+          this.Producto = respuesta3;
+        });
+      });
+      
+    });
+  }
+
 @ViewChild('paypalRef', {static:true}) private paypalRef!: ElementRef;
   ngOnInit(): void {
     window.paypal.Buttons({
@@ -22,7 +45,7 @@ export class AgregarPagoComponent implements OnInit {
         return actions.order.create({
           purchase_units: [{
             amount: {
-              value: '1000',
+              value: this.Oferta['precio'],
               currency_code: 'USD'
             }
           }]
