@@ -248,6 +248,10 @@ input.ng-pristine.ng-invalid {
     box-shadow:none;
 }
 
+.icono-envio{
+    margin-top: 3%;
+}
+
 
 .imagen-perfil{
     height: 3em;

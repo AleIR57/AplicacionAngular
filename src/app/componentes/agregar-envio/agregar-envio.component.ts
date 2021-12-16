@@ -66,7 +66,7 @@ export class AgregarEnvioComponent implements OnInit {
     this.formularioDeEnvios.value['latitud'] = this.coordenadas.latitud;
     this.formularioDeEnvios.value['longitud'] = this.coordenadas.longitud;
     this.crudService.AgregarEnvio(this.formularioDeEnvios.value).subscribe(respuesta =>{
-      this.ruteador.navigateByUrl('/listar-envio');
+      this.ruteador.navigateByUrl('/mis-envios');
     });
 
     

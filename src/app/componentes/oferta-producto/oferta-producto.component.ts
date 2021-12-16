@@ -105,7 +105,7 @@ export class OfertaProductoComponent implements OnInit {
         this.UsuarioProducto = respuesta;
       });
       
-     const contador2 = interval(5000);
+     const contador2 = interval(1000);
      contador2.subscribe(() =>{
       this.crudService.ObtenerOfertasDeProducto(this.elID).subscribe(respuesta =>{
         console.log(respuesta);
@@ -140,6 +140,7 @@ export class OfertaProductoComponent implements OnInit {
     console.log(this.formularioDeOfertas.value);
     console.log(this.Usuario2['idUsuario']);
     this.formularioDeOfertas.value['idUsuario'] = this.Usuario2['idUsuario'];
+    
    
     if(this.formularioDeOfertas.value['precio'] > this.Ofertas[0]['precio'] || this.Ofertas[0]['precio'] == undefined){
 
@@ -161,7 +162,6 @@ export class OfertaProductoComponent implements OnInit {
   }
 
  
- 
   if(this.formularioDeOfertas.value['precio'] > this.Ofertas[0]['precio']){
     this.crudService.ObtenerOfertasDeProducto(this.elID).subscribe(respuesta =>{
       console.log(respuesta);
@@ -170,7 +170,8 @@ export class OfertaProductoComponent implements OnInit {
       for(let i = 0; i < respuesta.length-respuesta.length; i++){
         this.crudService.ObtenerOfertasDeUsuarios(respuesta[i]['idOferta']).subscribe(respuesta2 =>{
           this.Usuarios.splice(respuesta.length, respuesta.length);
-          this.Usuarios = respuesta2;
+          this.Usuarios.push(respuesta2);
+          
         });
         
       }
@@ -212,6 +213,7 @@ export class OfertaProductoComponent implements OnInit {
     });
     
   }
+
   }
   
 

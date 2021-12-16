@@ -110,7 +110,7 @@
           <td class = "imagen-subasta"><img src="../../../assets/subasta.png" class = "img-subastas"></td>
             <td  class = "nombre-subasta" *ngFor="let obj of Usuarios[iControl]">{{obj.nombre}} {{obj.apellido}}</td>
           <td>${{oferta.precio}}</td>
-          <td *ngIf = "UsuarioMaximaOferta"> <a  *ngIf="iControl==0" name = "" id = "" routerLink="/agregar-envio/{{oferta.idOferta}}" class = "btn btn-outline-secondary" role = "button"><i class="fas fa-shipping-fast"></i></a></td>
+          <label *ngIf="demoBoolean" class = "icono-envio"><td *ngIf = "UsuarioMaximaOferta">  <a  *ngIf="iControl==0" name = "" id = "" routerLink="/agregar-envio/{{oferta.idOferta}}" class = "btn btn-outline-secondary" role = "button"><i class="fas fa-shipping-fast"></i></a></td></label>
         </tr>
       
        

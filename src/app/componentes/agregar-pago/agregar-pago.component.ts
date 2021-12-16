@@ -27,7 +27,6 @@ export class AgregarPagoComponent implements OnInit {
           this.Producto = respuesta3;
         });
       });
-      
     });
   }
 
@@ -45,7 +44,7 @@ export class AgregarPagoComponent implements OnInit {
         return actions.order.create({
           purchase_units: [{
             amount: {
-              value: this.Oferta['precio'],
+              value: '1000',
               currency_code: 'USD'
             }
           }]
