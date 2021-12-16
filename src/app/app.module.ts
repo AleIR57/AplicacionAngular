@@ -34,6 +34,7 @@ import { ProductosDeUsuarioComponent } from './componentes/productos-de-usuario/
 import { TodosLosProductosComponent } from './componentes/todos-los-productos/todos-los-productos.component';
 import { OfertaProductoComponent } from './componentes/oferta-producto/oferta-producto.component';
 import { MisEnviosComponent } from './componentes/mis-envios/mis-envios.component';
+import { AgregarPagoComponent } from './componentes/agregar-pago/agregar-pago.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { MisEnviosComponent } from './componentes/mis-envios/mis-envios.componen
     TodosLosProductosComponent,
     OfertaProductoComponent,
     MisEnviosComponent,
+    AgregarPagoComponent,
  
   ],
   imports: [

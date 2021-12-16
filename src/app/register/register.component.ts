@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit {
     
     this.crudService.RegistrarUsuario(this.formularioDeUsuarios.value).subscribe(respuesta =>{
      
-      this.ruteador.navigateByUrl('/listar-envio');
+      this.ruteador.navigateByUrl('/ingresar');
     });
 
     

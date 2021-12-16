@@ -100,15 +100,15 @@
   </div>
     <div *ngIf="demoBoolean">
       <form ngNativeValidate [formGroup] = "formularioDeOfertas" (ngSubmit)="agregarOferta()" class = "ofertar"> 
-      <input required type="number" class="form-control" formControlName="precio" name="" id="" aria-describedby="helpId" placeholder="Realiza una oferta">
+      <input required type="number" class="form-control input-subasta" formControlName="precio" name="" id="" aria-describedby="helpId" placeholder="Realiza una oferta">
       <button type="submit" class="btn btn-outline-info">Ofertar</button>
     </form>
     </div>
     <table class="tabla" *ngFor="let oferta of Ofertas; let iControl=index;">
       <tbody>
         <tr>
-          <td><img src="../../../assets/subasta.png" class = "img-subastas"></td>
-            <td  *ngFor="let obj of Usuarios[iControl]">{{obj.nombre}} {{obj.apellido}}</td>
+          <td class = "imagen-subasta"><img src="../../../assets/subasta.png" class = "img-subastas"></td>
+            <td  class = "nombre-subasta" *ngFor="let obj of Usuarios[iControl]">{{obj.nombre}} {{obj.apellido}}</td>
           <td>${{oferta.precio}}</td>
           <td *ngIf = "UsuarioMaximaOferta"> <a  *ngIf="iControl==0" name = "" id = "" routerLink="/agregar-envio/{{oferta.idOferta}}" class = "btn btn-outline-secondary" role = "button"><i class="fas fa-shipping-fast"></i></a></td>
         </tr>

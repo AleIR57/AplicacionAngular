@@ -3,7 +3,7 @@
     
         <div class = "contenedorProductos">
            
-        <div class="cardProductos" *ngFor="let producto of Productos; let iControl=index" routerLink="/oferta-producto/{{producto.idProducto}}">
+        <div class="cardProductos" *ngFor="let producto of Productos; let iControl=index" routerLink="/editar-producto/{{producto.idProducto}}">
             <div class="imgBx">
                 <img src="data:image/png;base64,{{producto.foto}}">
             </div>

@@ -1,3 +1,4 @@
+import { AgregarPagoComponent } from './componentes/agregar-pago/agregar-pago.component';
 
 import { RoleGuard } from './guards/role.guard';
 import { AgregarOfertaComponent } from './componentes/agregar-oferta/agregar-oferta.component';
@@ -53,7 +54,8 @@ const routes: Routes = [
   {path: 'todos-los-productos', component: TodosLosProductosComponent},
   {path: 'productos-de-usuario', component: ProductosDeUsuarioComponent},
   {path: 'oferta-producto/:id', component: OfertaProductoComponent},
-  {path: 'mis-envios', component: MisEnviosComponent}
+  {path: 'mis-envios', component: MisEnviosComponent},
+  {path: 'agregar-pago', component: AgregarPagoComponent}
 
 
 

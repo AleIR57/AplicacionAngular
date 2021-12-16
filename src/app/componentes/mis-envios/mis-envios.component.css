@@ -1,0 +1,8 @@
+@media screen and (max-width: 450px){
+    .codigo{
+        display: none;
+    }
+    .barrio{
+        display: none;
+    }
+}

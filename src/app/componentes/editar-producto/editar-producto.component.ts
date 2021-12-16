@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import * as countdown from 'countdown';
 import  decode  from 'jwt-decode';
+import { registerLocaleData } from '@angular/common';
 
 
 @Component({
@@ -40,6 +41,7 @@ export class EditarProductoComponent implements OnInit {
   show = 0;
   UsuarioProducto: any;
   UsuarioMaximaOferta =  false;
+  admin: boolean = false;
 
   constructor(
     private activateRoute:ActivatedRoute,
@@ -48,7 +50,7 @@ export class EditarProductoComponent implements OnInit {
     private ruteador: Router
   ) { 
 
-   
+  
 
     this.crudService.ObtenerCategorias().subscribe(respuesta =>{
       console.log(respuesta);
@@ -59,6 +61,8 @@ export class EditarProductoComponent implements OnInit {
     this.Usuario2 = decode(token);
     console.log(this.Usuario2['nombre']);
 
+
+    
     this.elID=this.activateRoute.snapshot.paramMap.get('id');
 
     this.formularioDeOfertas=this.formulario.group({
@@ -94,6 +98,11 @@ export class EditarProductoComponent implements OnInit {
     
     console.log(this.elID);
     this.crudService.ObtenerProducto(this.elID).subscribe(respuesta =>{
+      if(this.Usuario2['idRol'] == 2 || this.Usuario2['idUsuario'] == respuesta[0]['idUsuario']){
+        console.log("El usuario es el dueño del producto");
+        this.admin = true;
+      }
+  
       this.fechainicio = respuesta[0]['fechainicio'];
       this.descripcion = respuesta[0]['descripcion'];
       this.imagenPrevisualizacion = respuesta[0]['foto'];

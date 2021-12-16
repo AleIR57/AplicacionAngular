@@ -9,7 +9,9 @@ import {interval, timer} from 'rxjs';
 })
 export class MisEnviosComponent implements OnInit {
   Envios:any;
+  Envios2: any;
   Usuario!: any;
+  EnviosAux: any;  
 
   constructor(private crudService: CrudService) { }
 
@@ -17,12 +19,20 @@ export class MisEnviosComponent implements OnInit {
     const token = localStorage.getItem('token') as string;
     this.Usuario = decode(token);
     console.log(this.Usuario['nombre']);
-    const contador = interval(1000);
-    contador.subscribe(() =>{
-      this.crudService.ObtenerEnviosDeUsuario(this.Usuario['idUsuario']).subscribe(respuesta =>{
-        this.Envios=respuesta;
+    let idUsuario = this.Usuario['idUsuario'];
+
+      this.crudService.ObtenerEnvios().subscribe(respuesta =>{
+        this.Envios = respuesta;
+        for(let i = 0; i < this.Envios.length; i++){
+          this.crudService.ObtenerOferta(this.Envios[i]['idOferta']).subscribe(respuesta2 =>{
+            
+              this.EnviosAux = (respuesta2);
+              console.log(this.EnviosAux[i]['idUsuario']);
+            
+          });
+        }
+       
       });
-    });
     
   }
 

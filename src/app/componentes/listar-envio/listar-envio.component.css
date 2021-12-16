@@ -1,0 +1,21 @@
+@media screen and (max-width: 500px){
+    .codigo-envio{
+        display: none;
+    }
+    
+    .barrio{
+        display: none;
+    }
+    
+    
+    
+}
+
+@media screen and (max-width: 350px){
+    .botones-accion{
+        display: none;
+    }
+
+}
+
+

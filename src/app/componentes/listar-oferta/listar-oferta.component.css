@@ -1,6 +1,6 @@
 img{
-    width: 100%;
-    height: 15em;
+    width: 10em;
+    height: 8em;
 }
 
 .horizontal {
@@ -37,4 +37,13 @@ img{
     border-radius: 3px;
 
 
+}
+
+
+@media screen and (max-width: 350px){
+    .horiontal{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

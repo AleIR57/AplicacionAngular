@@ -1,24 +1,32 @@
 
-<div class = "container">
+    
+<div class = "container listarUsuario">
 
-    <div class="card-body horizontal">
-            
-        <div class="row" *ngFor="let oferta of Ofertas; let iControl=index">
-            <div class="col-md12 p-12">
-                <div class="card tarjeta" style="width: 18rem;" routerLink="/editar-producto/{{oferta.idProducto}}" *ngFor="let obj of Productos[iControl]">
-                    <img class="card-img-top" src="data:image/png;base64,{{obj.foto}}" alt="Card image cap">
-                    <div class = "botones">
-                    <a href="#" class="btn btn-light botonPrecio"  *ngFor="let obj of Productos[iControl]">{{ obj.fechafinalizacion }}</a>
-                    <a href="#" class="btn btn-info botonTiempo">$ {{ oferta.precio }} </a>
-                </div>
-                    <div class="card-body" *ngFor="let obj of Productos[iControl]">
-                      <h5 class="card-title">{{obj.nombre}}</h5>
-                      <p class="card-text">{{obj.marca}}</p>
-                    </div>
-                  </div>
-            </div>
+    <div class="card">
+        <div class="card-header">
+          
         </div>
-        
-
-   
+        <div class="card-body text-center">
+         <table class="table">
+             <thead>
+                 <tr>
+                     <th class = "columna-imagen">IMAGEN</th>
+                     <th>NOMBRE</th>
+                     <th class = "columna-telefono">OFERTA</th>
+          
+                 </tr>
+             </thead>
+             <tbody>
+                 <tr *ngFor="let oferta of Ofertas; let iControl=index">
+                     <td class = "columna-imagen" *ngFor="let obj of Productos[iControl]"><img src="data:image/png;base64,{{obj.foto}}"></td>
+                     <td *ngFor="let obj of Productos[iControl]"> {{obj.nombre}} </td>
+                     <td class = "columna-telefono"> $ {{ oferta.precio }} </td>
+    
+                 </tr>
+                 
+             </tbody>
+         </table>
+        </div>
+      </div>
+    
     </div>

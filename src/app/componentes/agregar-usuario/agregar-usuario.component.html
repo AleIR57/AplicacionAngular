@@ -61,7 +61,7 @@
             <div class="mb-3">
               <label for="">Rol:</label>
               <select class="form-select" aria-label="Default select example" formControlName = "idrol" >
-                <option selected>Selecciona un rol</option>
+                <option value = "0" selected="selected">Selecciona un rol</option>
                 <option *ngFor="let rol of Roles; let iControl=index" value="{{rol.idRol}}">{{rol.nombre}}</option>
               </select>
             </div>

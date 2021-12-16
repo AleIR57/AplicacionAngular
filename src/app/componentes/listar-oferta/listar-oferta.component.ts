@@ -25,20 +25,24 @@ export class ListarOfertaComponent implements OnInit {
     this.crudService.ObtenerOfertasDeUnUsuario(this.Usuario['idUsuario']).subscribe(respuesta =>{
 
       for(let i = 0; i < respuesta.length; i++){
+       console.log(respuesta[i+1]['idProducto']);
+
         this.Ofertas=respuesta;
-        console.log(" Ofertas: ", respuesta[i]['idProducto']);
-        console.log(this.Ofertas.some((oferta:any) => oferta.idProducto === '1')); 
-        if(respuesta[i]['idProducto'] != respuesta[i+1]['idProducto']){
-         
+ 
           for(let i = 0; i < respuesta.length; i++){
             this.crudService.ObtenerProductoDeOferta(respuesta[i]['idOferta']).subscribe(respuesta2 =>{
-                  this.Productos.push(respuesta2);
+                  
+                  
+              this.Productos.push(respuesta2);
+                 
+                    
+                  
               
             });
             
           }
-        }
-          
+
+  
       }
       
     });
