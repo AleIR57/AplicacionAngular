@@ -1,9 +1,35 @@
+
+<div class = "contenedor-componentes">
+
+
 <div class = "apartado-producto" *ngFor = "let producto of Producto">
-    <h2>{{producto.nombre}}</h2>
+    
+    <img src="data:image/png;base64,{{producto.foto}}">
+    <div class = "info">
+        <h4>{{producto.nombre}}</h4>
+        <h5>{{producto.marca}}</h5>
+        <h5>{{producto.modelo}}</h5>
+    </div>
+   
 </div>
+
+<div class = "contenedor-apartado-oferta">
+
 
 <div class = "apartado-oferta" *ngFor = "let oferta of Oferta">
-    <h3>$ {{oferta.precio}}</h3>
+    
+    <div class = "producto-detalles">
+        <h4>Detalles del precio</h4>
+        <h5>Producto: $ {{oferta.precio}}</h5>
+        <h5>Precio del envío: $ 10900</h5>
+        <div class = "label"></div>
+        <h5 >Total: <label class = "total">$ {{Total}}</label></h5>
+    </div>
+    
+       
+</div>
+<div #paypalRef class = "boton-paypal"></div>
 </div>
 
-<div #paypalRef class = "boton-paypal"></div>
+</div>
+

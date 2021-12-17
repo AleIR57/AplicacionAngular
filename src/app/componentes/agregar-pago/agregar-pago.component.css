@@ -1,17 +1,59 @@
+.contenedor-componentes{
+    display: flex;
+}
+
+
+
 .apartado-producto{
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
+
+    border-radius: 5px;
+    padding: 1%;
+    box-shadow: 0 0 5px lightgray;
+    display: flex;
+}
+
+.apartado-producto h4{
+    font-weight: bold;
+}
+
+.apartado-producto img{
+    width: 10em;
+    height: 12em;
+    border-radius: 5px;
+    
+}
+
+.apartado-producto .info{
+    margin-left:1%;
 }
 
 .apartado-oferta{
+    box-shadow: 0 0 8px lightgray;
+    padding: 3%;
     margin-left: auto;
+    display: flex;
     margin-right: auto;
-    text-align: center;
+
+}
+
+.apartado-oferta h4{
+   font-weight: bold;
+   text-align: center;
+}
+
+.apartado-oferta .label{
+    border-top: 1px solid lightgray;
+}
+
+.total{
+    color: green;
 }
 
 .boton-paypal{
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+  width: 15%;
+  height: 15%;
+  margin-top: 8%;
 }

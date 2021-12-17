@@ -2,6 +2,7 @@ import { FormBuilder } from '@angular/forms';
 import { CrudService } from 'src/app/servicio/crud.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-agregar-pago',
@@ -13,6 +14,7 @@ export class AgregarPagoComponent implements OnInit {
   Envio: any;
   Oferta: any;
   Producto: any;
+  Total: any;
   constructor(private activateRoute:ActivatedRoute,
     private crudService:CrudService,
     public formulario:FormBuilder,
@@ -21,7 +23,9 @@ export class AgregarPagoComponent implements OnInit {
 
     this.crudService.ObtenerEnvio(this.elID).subscribe(respuesta => {
       this.Envio = respuesta;
+     
       this.crudService.ObtenerOferta(respuesta[0]['idOferta']).subscribe(respuesta2 =>{
+        this.Total = Number(respuesta2[0]['precio']) + 10900;
         this.Oferta = respuesta2;
         this.crudService.ObtenerProducto(respuesta2[0]['idProducto']).subscribe(respuesta3 =>{
           this.Producto = respuesta3;
