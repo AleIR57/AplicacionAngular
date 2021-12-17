@@ -57,7 +57,7 @@ export class OfertaProductoComponent implements OnInit {
       this.formularioDeOfertas=this.formulario.group({
         idUsuario:[this.Usuario2['idUsuario']],
         idProducto:[this.elID],
-        idEstado:['Vigente'],
+        idEstado:[2],
         precio:[null],
         fecha: new Date,
       });
